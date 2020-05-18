@@ -15,3 +15,55 @@ Migrating to CreateUsers (20200518205016)
   [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7094093149989894930)[0m
   [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/users" for ::1 at 2020-05-18 18:33:32 -0400
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"mango@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (12.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mango@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "mango@gmail.com"], ["password_digest", "$2a$12$qGZpfx43dZ2dkT2XFcQH2.LbmXZfWkCtzQNN/HetJgTUuUVWXYvQK"], ["created_at", "2020-05-18 22:33:33.331601"], ["updated_at", "2020-05-18 22:33:33.331601"]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 201 Created in 336ms (Views: 0.9ms | ActiveRecord: 36.3ms | Allocations: 8447)
+
+
+Started POST "/auth/login" for ::1 at 2020-05-18 18:38:24 -0400
+Processing by AuthenticationController#login as */*
+  Parameters: {"auth"=>{"email"=>"mango@gmail.com", "password"=>"[FILTERED]"}, "authentication"=>{"auth"=>{"email"=>"mango@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mango@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 268ms (Views: 0.4ms | ActiveRecord: 0.7ms | Allocations: 1316)
+
+
+Started POST "/users" for ::1 at 2020-05-18 18:52:17 -0400
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"mango2@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mango2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "mango2@gmail.com"], ["password_digest", "$2a$12$87GKE8we9cBOo8eg/saIjOoQXk89/V7eRCLewlrTTRvJbl6LB7.SW"], ["created_at", "2020-05-18 22:52:17.960509"], ["updated_at", "2020-05-18 22:52:17.960509"]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 201 Created in 290ms (Views: 0.8ms | ActiveRecord: 3.2ms | Allocations: 7335)
+
+
+Started POST "/auth/login" for ::1 at 2020-05-18 18:52:23 -0400
+Processing by AuthenticationController#login as */*
+  Parameters: {"auth"=>{"email"=>"mango@gmail.com", "password"=>"[FILTERED]"}, "authentication"=>{"auth"=>{"email"=>"mango@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mango@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 269ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 1284)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-18 18:53:47 -0400
+Processing by AuthenticationController#verify as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 981)
+
+
