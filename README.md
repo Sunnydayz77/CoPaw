@@ -17,18 +17,17 @@ Nobody dropping by your desk uninvited anymore? Give us a week to change that :s
 
 ### MVP
 
+- _Web app built as an SPA(single-page app)_<br>
+- _Use atleast one API to call and display information_<br>
 - _Sign up_<br>
 - _Sign in_<br>
 - _Messaging board_<br>
 - _Creation of messages_<br>
 - _Editing of messages_<br>
 - _Deletion of messages_<br>
-- _Comments section_<br>
 - _Rails Backend (API)_<br>
 - _React Frontend_<br>
 - _Authentication_<br>
-- _3 related models (User plus two others)_<br>
-- _3 associations (one-to-many, many-to-many)_<br>
 - _Flexbox_<br>
 - _Nicely styled, ready for your portfolio, and ready to show employees!_<br>
 - _Deployed on Surge/Heroku_<br>
@@ -41,6 +40,8 @@ Nobody dropping by your desk uninvited anymore? Give us a week to change that :s
 
 #### Post-MVP Goals
 
+- _3 related models (User plus two others)_<br>
+- _3 associations (one-to-many or many-to-many)_<br>
 - _404 Page_<br>
 - _Search Bar_<br>
 - _Weather API_<br>
@@ -81,14 +82,12 @@ Marvel: (?) <br>
 | Task                  | Priority | Estimated Time | Actual Time |
 | :-------------------: | :------: | :------------: | :---------: |
 | Wireframe             |    H     |       ?        |      ?      |
-| Initial Readme file   |    H     |       ?        |      ?      |
-| Backend Authentication|    H     |       ?        |      ?      |
+| Initial Readme file   |    H     |       2 hrs    |      1 hr   |
+| Backend Authentication|    H     |       4 hrs    |      4 hrs  |
 | Backend Models        |    H     |       ?        |      ?      |
 | API routes            |    H     |       ?        |      ?      |
 | Frontend Auth & Links |    H     |       ?        |      ?      |
 | Message CRUD          |    H     |       ?        |      ?      |
-| Header(styling)       |    M     |       ?        |      ?      |
-| Footer                |    L     |       ?        |      ?      |
 | Overall styling       |    H     |       ?        |      ?      |
 | Final Readme file     |    H     |       ?        |      ?      |
 | TOTAL                 |          |       ?        |      ?      |   
@@ -155,7 +154,7 @@ Heroku(Back-end): (?) <br>
 
 ### Installation Instructions
 
-1. Clone repository down with 'git clone https://github.com/Sunnydayz77/the-plus-side.git'
+1. Clone repository down with 'git clone https://github.com/Sunnydayz77/CoPaw.git'
 2. CD into repository
 3. Run 'bundle install'
 4. Run 'rails db:create'
