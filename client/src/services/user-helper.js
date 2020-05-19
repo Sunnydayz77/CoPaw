@@ -21,11 +21,11 @@ export const createProfile = async (profileData) => {
 }
 
 export const readOneProfile = async (user_id) => {
-  const response = await api.get(`/profiles/${user_id}`);
+  const response = await api.get(`/users/${user_id}/profile`);
   return response.data;
 }
 
 export const updateProfile = async (profileData) => {
-  const response = await api.put(`/profiles/${profileData.user}`, {profile: profileData} );
+  const response = await api.put(`/profiles/${profileData.id}`, {profile: profileData} );
   return response.data;
 }
