@@ -2779,3 +2779,1090 @@ ActionController::ParameterMissing (param is missing or the value is empty: prof
   
 app/controllers/profiles_controller.rb:49:in `profile_params'
 app/controllers/profiles_controller.rb:18:in `create'
+Started POST "/users/" for ::1 at 2020-05-19 10:01:49 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"example6@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example6@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[35m (1.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 422 Unprocessable Entity in 534ms (Views: 0.4ms | ActiveRecord: 19.6ms | Allocations: 13156)
+
+
+Started POST "/users/" for ::1 at 2020-05-19 10:01:53 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"example6@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example6@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 422 Unprocessable Entity in 427ms (Views: 0.2ms | ActiveRecord: 1.1ms | Allocations: 3252)
+
+
+Started POST "/auth/login" for ::1 at 2020-05-19 10:02:05 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"auth"=>{"email"=>"example6@gmail.com", "password"=>"[FILTERED]"}, "authentication"=>{"auth"=>{"email"=>"example6@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example6@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.8ms | Allocations: 1451)
+
+
+  
+NoMethodError (undefined method `authenticate' for nil:NilClass):
+  
+app/controllers/authentication_controller.rb:7:in `login'
+Started POST "/auth/login" for ::1 at 2020-05-19 10:02:42 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"auth"=>{"email"=>"example5@gmail.com", "password"=>"[FILTERED]"}, "authentication"=>{"auth"=>{"email"=>"example5@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example5@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 307ms (Views: 0.3ms | ActiveRecord: 3.0ms | Allocations: 1077)
+
+
+Started GET "/users" for ::1 at 2020-05-19 10:02:42 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.8ms | Allocations: 1625)
+
+
+Started GET "/profiles/5" for ::1 at 2020-05-19 10:03:28 -0400
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProfile Load (0.8ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:44:in `set_profile'
+Completed 404 Not Found in 19ms (ActiveRecord: 14.9ms | Allocations: 1416)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Profile with 'id'=5):
+  
+app/controllers/profiles_controller.rb:44:in `set_profile'
+Started GET "/users" for ::1 at 2020-05-19 10:03:56 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 0.4ms | Allocations: 1597)
+
+
+Started POST "/profiles" for ::1 at 2020-05-19 10:41:40 -0400
+Processing by ProfilesController#create as */*
+Completed 400 Bad Request in 3ms (ActiveRecord: 0.0ms | Allocations: 489)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: profile):
+  
+app/controllers/profiles_controller.rb:49:in `profile_params'
+app/controllers/profiles_controller.rb:18:in `create'
+Started POST "/profiles" for ::1 at 2020-05-19 10:43:30 -0400
+Processing by ProfilesController#create as */*
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.0ms | Allocations: 441)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: profile):
+  
+app/controllers/profiles_controller.rb:49:in `profile_params'
+app/controllers/profiles_controller.rb:18:in `create'
+Started GET "/users/5" for ::1 at 2020-05-19 10:44:08 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:45:in `set_user'
+Completed 200 OK in 51ms (Views: 0.4ms | ActiveRecord: 27.9ms | Allocations: 7739)
+
+
+Started POST "/users" for ::1 at 2020-05-19 10:44:26 -0400
+Processing by UsersController#create as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 121)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:50:in `user_params'
+app/controllers/users_controller.rb:18:in `create'
+Started POST "/users" for ::1 at 2020-05-19 10:44:41 -0400
+Processing by UsersController#create as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 119)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:50:in `user_params'
+app/controllers/users_controller.rb:18:in `create'
+Started POST "/users" for ::1 at 2020-05-19 10:45:35 -0400
+Processing by UsersController#create as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 119)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:50:in `user_params'
+app/controllers/users_controller.rb:18:in `create'
+Started POST "/profiles" for ::1 at 2020-05-19 10:48:20 -0400
+Processing by ProfilesController#create as */*
+  Parameters: {"profile"=>{"full_name"=>"Lia Kapanadze", "title"=>"developer", "department"=>"engineering", "status"=>"whats pupping", "user_id"=>5}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/profiles_controller.rb:20:in `create'
+  [1m[36mProfile Create (39.1ms)[0m  [1m[32mINSERT INTO "profiles" ("full_name", "title", "department", "status", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["full_name", "Lia Kapanadze"], ["title", "developer"], ["department", "engineering"], ["status", "whats pupping"], ["created_at", "2020-05-19 14:48:20.092508"], ["updated_at", "2020-05-19 14:48:20.092508"], ["user_id", 5]]
+  ↳ app/controllers/profiles_controller.rb:20:in `create'
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/profiles_controller.rb:20:in `create'
+Completed 201 Created in 122ms (Views: 2.1ms | ActiveRecord: 86.0ms | Allocations: 8192)
+
+
+Started POST "/auth/login" for ::1 at 2020-05-19 10:49:17 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"auth"=>{"email"=>"example5@gmail.com", "password"=>"[FILTERED]"}, "authentication"=>{"auth"=>{"email"=>"example5@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example5@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 317ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 1203)
+
+
+Started GET "/users" for ::1 at 2020-05-19 10:49:17 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.6ms | Allocations: 1599)
+
+
+Started GET "/profiles/5" for ::1 at 2020-05-19 10:49:20 -0400
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProfile Load (0.9ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:44:in `set_profile'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.9ms | Allocations: 775)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Profile with 'id'=5):
+  
+app/controllers/profiles_controller.rb:44:in `set_profile'
+Started POST "/profiles" for ::1 at 2020-05-19 10:49:45 -0400
+Processing by ProfilesController#create as HTML
+  Parameters: {"profile"=>{"full_name"=>"Lia Kapanadze", "title"=>"", "department"=>"", "status"=>"", "user_id"=>5}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/profiles_controller.rb:20:in `create'
+  [1m[36mProfile Create (0.5ms)[0m  [1m[32mINSERT INTO "profiles" ("full_name", "title", "department", "status", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["full_name", "Lia Kapanadze"], ["title", ""], ["department", ""], ["status", ""], ["created_at", "2020-05-19 14:49:45.493327"], ["updated_at", "2020-05-19 14:49:45.493327"], ["user_id", 5]]
+  ↳ app/controllers/profiles_controller.rb:20:in `create'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/profiles_controller.rb:20:in `create'
+Completed 201 Created in 8ms (Views: 1.1ms | ActiveRecord: 1.5ms | Allocations: 2691)
+
+
+Started GET "/profiles/5" for ::1 at 2020-05-19 10:49:53 -0400
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProfile Load (0.7ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:44:in `set_profile'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.7ms | Allocations: 659)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Profile with 'id'=5):
+  
+app/controllers/profiles_controller.rb:44:in `set_profile'
+Started GET "/auth/verify" for ::1 at 2020-05-19 10:50:29 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (19.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 22ms (Views: 0.3ms | ActiveRecord: 19.4ms | Allocations: 853)
+
+
+Started GET "/profiles/5" for ::1 at 2020-05-19 10:50:29 -0400
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProfile Load (13.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:44:in `set_profile'
+Completed 404 Not Found in 15ms (ActiveRecord: 13.3ms | Allocations: 659)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Profile with 'id'=5):
+  
+app/controllers/profiles_controller.rb:44:in `set_profile'
+Started GET "/auth/verify" for ::1 at 2020-05-19 10:55:54 -0400
+  
+ArgumentError (Missing :controller key on routes definition, please check your routes.):
+  
+config/routes.rb:6:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/auth/verify" for ::1 at 2020-05-19 10:56:05 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 27ms (Views: 0.4ms | ActiveRecord: 5.7ms | Allocations: 7445)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-19 10:56:07 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (10.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 13ms (Views: 0.4ms | ActiveRecord: 10.2ms | Allocations: 853)
+
+
+Started GET "/profiles/5" for ::1 at 2020-05-19 10:58:57 -0400
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:45:in `set_profile'
+Completed 404 Not Found in 12ms (ActiveRecord: 8.3ms | Allocations: 1718)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Profile with 'id'=5):
+  
+app/controllers/profiles_controller.rb:45:in `set_profile'
+Started GET "/auth/verify" for ::1 at 2020-05-19 10:59:21 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 23ms (Views: 0.2ms | ActiveRecord: 8.2ms | Allocations: 7491)
+
+
+Started GET "/profiles/5" for ::1 at 2020-05-19 10:59:21 -0400
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:45:in `set_profile'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.5ms | Allocations: 659)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Profile with 'id'=5):
+  
+app/controllers/profiles_controller.rb:45:in `set_profile'
+Started GET "/auth/verify" for ::1 at 2020-05-19 10:59:28 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 6ms (Views: 0.6ms | ActiveRecord: 1.6ms | Allocations: 851)
+
+
+Started GET "/profiles/5" for ::1 at 2020-05-19 10:59:28 -0400
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:45:in `set_profile'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.4ms | Allocations: 659)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Profile with 'id'=5):
+  
+app/controllers/profiles_controller.rb:45:in `set_profile'
+Started GET "/auth/verify" for ::1 at 2020-05-19 10:59:33 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (9.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 32ms (Views: 0.3ms | ActiveRecord: 9.9ms | Allocations: 855)
+
+
+Started GET "/profiles/5/profile" for ::1 at 2020-05-19 10:59:33 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/profiles/5/profile"):
+  
+actionpack (6.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.1) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/profiles/5/profile" for ::1 at 2020-05-19 10:59:40 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/profiles/5/profile"):
+  
+actionpack (6.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.1) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/auth/verify" for ::1 at 2020-05-19 11:00:26 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.5ms | Allocations: 851)
+
+
+Started GET "/users/5/profile" for ::1 at 2020-05-19 11:00:26 -0400
+  
+ActionController::RoutingError (uninitialized constant ProfileController
+Did you mean?  ProfilesController):
+  
+actionpack (6.0.3.1) lib/action_dispatch/http/request.rb:92:in `rescue in controller_class_for'
+actionpack (6.0.3.1) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (6.0.3.1) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (6.0.3.1) lib/action_dispatch/routing/route_set.rb:44:in `controller'
+actionpack (6.0.3.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (6.0.3.1) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.1) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.1) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.1) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users/5/profile" for ::1 at 2020-05-19 11:00:29 -0400
+  
+ActionController::RoutingError (uninitialized constant ProfileController
+Did you mean?  ProfilesController):
+  
+actionpack (6.0.3.1) lib/action_dispatch/http/request.rb:92:in `rescue in controller_class_for'
+actionpack (6.0.3.1) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (6.0.3.1) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (6.0.3.1) lib/action_dispatch/routing/route_set.rb:44:in `controller'
+actionpack (6.0.3.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (6.0.3.1) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.1) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.1) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.1) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users/5/profile" for ::1 at 2020-05-19 11:01:22 -0400
+Processing by ProfilesController#show as HTML
+  Parameters: {"user_id"=>"5"}
+Completed 404 Not Found in 5ms (ActiveRecord: 3.1ms | Allocations: 1057)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Profile without an ID):
+  
+app/controllers/profiles_controller.rb:45:in `set_profile'
+Started GET "/users/5/profile" for ::1 at 2020-05-19 11:02:52 -0400
+  
+SyntaxError (/Users/liakapanadze/Mandalorians/PortfolioMaster/CoPaw/app/controllers/profiles_controller.rb:13: syntax error, unexpected ':', expecting ')'
+...ofile = Profile.where(user_id : params[:user_id])
+...                              ^
+/Users/liakapanadze/Mandalorians/PortfolioMaster/CoPaw/app/controllers/profiles_controller.rb:13: syntax error, unexpected ')', expecting end
+...ere(user_id : params[:user_id])
+...                              ^):
+  
+app/controllers/profiles_controller.rb:13: syntax error, unexpected ':', expecting ')'
+app/controllers/profiles_controller.rb:13: syntax error, unexpected ')', expecting end
+app/controllers/profiles_controller.rb:13: syntax error, unexpected ':', expecting ')'
+app/controllers/profiles_controller.rb:13: syntax error, unexpected ')', expecting end
+Started GET "/users/5/profile" for ::1 at 2020-05-19 11:06:35 -0400
+Processing by ProfilesController#show as HTML
+  Parameters: {"user_id"=>"5"}
+Completed 404 Not Found in 5ms (ActiveRecord: 3.0ms | Allocations: 1052)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Profile without an ID):
+  
+app/controllers/profiles_controller.rb:45:in `set_profile'
+Started GET "/users/5/profile" for ::1 at 2020-05-19 11:08:26 -0400
+Processing by ProfilesController#show as HTML
+  Parameters: {"user_id"=>"5"}
+Completed 404 Not Found in 6ms (ActiveRecord: 3.2ms | Allocations: 1052)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Profile without an ID):
+  
+app/controllers/profiles_controller.rb:45:in `set_profile'
+Started GET "/users/5/profile" for ::1 at 2020-05-19 11:09:43 -0400
+Processing by ProfilesController#show as HTML
+  Parameters: {"user_id"=>"5"}
+Completed 500 Internal Server Error in 83ms (ActiveRecord: 0.0ms | Allocations: 35669)
+
+
+  
+NoMethodError (undefined method `set_profile' for #<ProfilesController:0x00007fe9b12eaf98>
+Did you mean?  send_file):
+  
+activesupport (6.0.3.1) lib/active_support/callbacks.rb:428:in `block in make_lambda'
+activesupport (6.0.3.1) lib/active_support/callbacks.rb:181:in `block (2 levels) in halting_and_conditional'
+actionpack (6.0.3.1) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (6.0.3.1) lib/active_support/callbacks.rb:182:in `block in halting_and_conditional'
+activesupport (6.0.3.1) lib/active_support/callbacks.rb:513:in `block in invoke_before'
+activesupport (6.0.3.1) lib/active_support/callbacks.rb:513:in `each'
+activesupport (6.0.3.1) lib/active_support/callbacks.rb:513:in `invoke_before'
+activesupport (6.0.3.1) lib/active_support/callbacks.rb:134:in `run_callbacks'
+actionpack (6.0.3.1) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.3.1) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.3.1) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.3.1) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.3.1) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.3.1) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.3.1) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.3.1) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.3.1) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.1) lib/abstract_controller/base.rb:136:in `process'
+actionpack (6.0.3.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.1) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.1) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.1) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.1) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.1) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users/5/profile" for ::1 at 2020-05-19 11:11:47 -0400
+Processing by ProfilesController#show as HTML
+  Parameters: {"user_id"=>"5"}
+Completed 404 Not Found in 5ms (ActiveRecord: 2.9ms | Allocations: 1050)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Profile without an ID):
+  
+app/controllers/profiles_controller.rb:45:in `set_profile'
+Started GET "/users/5/profile" for ::1 at 2020-05-19 11:12:50 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 15ms (Views: 9.6ms | ActiveRecord: 3.2ms | Allocations: 6931)
+
+
+Started PUT "/profiles/undefined" for ::1 at 2020-05-19 11:12:55 -0400
+Processing by ProfilesController#update as HTML
+  Parameters: {"profile"=>{"full_name"=>"Lia Kapanadze", "title"=>"", "department"=>"", "status"=>"", "user_id"=>5}, "id"=>"undefined"}
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:50:in `set_profile'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.4ms | Allocations: 777)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Profile with 'id'=undefined):
+  
+app/controllers/profiles_controller.rb:50:in `set_profile'
+Started GET "/auth/verify" for ::1 at 2020-05-19 11:14:10 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 54ms (Views: 0.3ms | ActiveRecord: 31.4ms | Allocations: 7466)
+
+
+Started GET "/users/5/profile" for ::1 at 2020-05-19 11:14:11 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.5ms | Allocations: 1231)
+
+
+Started PUT "/profiles/undefined" for ::1 at 2020-05-19 11:14:14 -0400
+Processing by ProfilesController#update as HTML
+  Parameters: {"profile"=>{"full_name"=>"Lia Kapanadze", "title"=>"", "department"=>"", "status"=>"", "user_id"=>5}, "id"=>"undefined"}
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:50:in `set_profile'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.5ms | Allocations: 669)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Profile with 'id'=undefined):
+  
+app/controllers/profiles_controller.rb:50:in `set_profile'
+Started GET "/profiles" for ::1 at 2020-05-19 11:15:00 -0400
+Processing by ProfilesController#index as */*
+  Parameters: {"profile"=>{"full_name"=>"Lia Kapanadze", "title"=>"developer", "department"=>"engineering", "status"=>"whats pupping", "user_id"=>5}}
+  [1m[36mProfile Load (10.6ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/controllers/profiles_controller.rb:8:in `index'
+Completed 200 OK in 14ms (Views: 3.0ms | ActiveRecord: 10.6ms | Allocations: 1160)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-19 11:15:31 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 852)
+
+
+Started GET "/users/5/profile" for ::1 at 2020-05-19 11:15:32 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mProfile Load (34.9ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 39ms (Views: 3.6ms | ActiveRecord: 34.9ms | Allocations: 1231)
+
+
+Started PUT "/profiles/" for ::1 at 2020-05-19 11:15:37 -0400
+  
+ActionController::RoutingError (No route matches [PUT] "/profiles"):
+  
+actionpack (6.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.1) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users/5/profile" for ::1 at 2020-05-19 11:16:02 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.4ms | Allocations: 1230)
+
+
+Started GET "/users/5/profile" for ::1 at 2020-05-19 11:16:16 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.4ms | Allocations: 1231)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-19 11:16:53 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (13.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 16ms (Views: 0.3ms | ActiveRecord: 13.7ms | Allocations: 852)
+
+
+Started GET "/users/5/profile" for ::1 at 2020-05-19 11:16:53 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mProfile Load (6.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 10ms (Views: 2.7ms | ActiveRecord: 6.4ms | Allocations: 1231)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-19 11:17:04 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 852)
+
+
+Started GET "/users/5/profile" for ::1 at 2020-05-19 11:17:04 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mProfile Load (1.6ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 1.6ms | Allocations: 1231)
+
+
+Started GET "/users/5/profile" for ::1 at 2020-05-19 11:17:28 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.6ms | Allocations: 1231)
+
+
+Started PUT "/profiles/" for ::1 at 2020-05-19 11:17:41 -0400
+  
+ActionController::RoutingError (No route matches [PUT] "/profiles"):
+  
+actionpack (6.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.1) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/auth/verify" for ::1 at 2020-05-19 11:18:13 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (17.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 21ms (Views: 0.6ms | ActiveRecord: 17.7ms | Allocations: 851)
+
+
+Started GET "/users/5/profile" for ::1 at 2020-05-19 11:18:13 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.3ms | Allocations: 1231)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-19 11:18:16 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (13.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 15ms (Views: 0.2ms | ActiveRecord: 13.6ms | Allocations: 852)
+
+
+Started GET "/users/5/profile" for ::1 at 2020-05-19 11:18:16 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mProfile Load (8.7ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 12ms (Views: 3.0ms | ActiveRecord: 8.7ms | Allocations: 1232)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-19 11:18:22 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (12.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 16ms (Views: 0.3ms | ActiveRecord: 12.9ms | Allocations: 852)
+
+
+Started GET "/users/5/profile" for ::1 at 2020-05-19 11:18:22 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mProfile Load (4.6ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 7ms (Views: 2.5ms | ActiveRecord: 4.6ms | Allocations: 1231)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-19 11:18:26 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 852)
+
+
+Started GET "/users/5/profile" for ::1 at 2020-05-19 11:18:26 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.5ms | Allocations: 1231)
+
+
+Started GET "/users/5/profile" for ::1 at 2020-05-19 11:18:30 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.3ms | Allocations: 1231)
+
+
+Started POST "/users/" for ::1 at 2020-05-19 11:19:02 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"example3@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example3@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 422 Unprocessable Entity in 231ms (Views: 0.1ms | ActiveRecord: 0.9ms | Allocations: 3549)
+
+
+Started POST "/users/" for ::1 at 2020-05-19 11:19:08 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"example@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 422 Unprocessable Entity in 237ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 3228)
+
+
+Started POST "/auth/login" for ::1 at 2020-05-19 11:19:18 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"auth"=>{"email"=>"example3@gmail.com", "password"=>"[FILTERED]"}, "authentication"=>{"auth"=>{"email"=>"example3@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example3@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 246ms (Views: 0.3ms | ActiveRecord: 0.8ms | Allocations: 1168)
+
+
+Started GET "/users" for ::1 at 2020-05-19 11:19:19 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.2ms | Allocations: 1602)
+
+
+Started GET "/users/3/profile" for ::1 at 2020-05-19 11:19:31 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"3"}
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.4ms | Allocations: 927)
+
+
+Started PUT "/profiles/undefined" for ::1 at 2020-05-19 11:19:44 -0400
+Processing by ProfilesController#update as HTML
+  Parameters: {"profile"=>{"full_name"=>"Lia Kapanadze"}, "id"=>"undefined"}
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:50:in `set_profile'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.5ms | Allocations: 665)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Profile with 'id'=undefined):
+  
+app/controllers/profiles_controller.rb:50:in `set_profile'
+Started GET "/auth/verify" for ::1 at 2020-05-19 11:20:28 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 2.0ms | Allocations: 851)
+
+
+Started GET "/users/3/profile" for ::1 at 2020-05-19 11:20:29 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"3"}
+  [1m[36mProfile Load (1.1ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 1.1ms | Allocations: 927)
+
+
+Started GET "/users/3/profile" for ::1 at 2020-05-19 11:20:32 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"3"}
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.3ms | Allocations: 927)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-19 11:20:43 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 1.9ms | Allocations: 852)
+
+
+Started GET "/users/3/profile" for ::1 at 2020-05-19 11:20:43 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"3"}
+  [1m[36mProfile Load (24.0ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 27ms (Views: 2.4ms | ActiveRecord: 24.0ms | Allocations: 927)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-19 11:20:45 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 852)
+
+
+Started GET "/users/3/profile" for ::1 at 2020-05-19 11:20:45 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"3"}
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.5ms | Allocations: 927)
+
+
+Started GET "/users/3/profile" for ::1 at 2020-05-19 11:20:49 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"3"}
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.3ms | Allocations: 927)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-19 11:21:06 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 855)
+
+
+Started GET "/users/3/profile" for ::1 at 2020-05-19 11:21:06 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"3"}
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.5ms | Allocations: 927)
+
+
+Started GET "/users/3/profile" for ::1 at 2020-05-19 11:21:10 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"3"}
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.3ms | Allocations: 927)
+
+
+Started POST "/profiles" for ::1 at 2020-05-19 11:21:19 -0400
+Processing by ProfilesController#create as HTML
+  Parameters: {"profile"=>{"id"=>"", "full_name"=>"Lia Kapanadze", "title"=>"", "department"=>"", "status"=>"", "user_id"=>3}}
+[31mUnpermitted parameter: :id[0m
+  [1m[35m (3.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/profiles_controller.rb:26:in `create'
+  [1m[36mProfile Create (2.2ms)[0m  [1m[32mINSERT INTO "profiles" ("full_name", "title", "department", "status", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["full_name", "Lia Kapanadze"], ["title", ""], ["department", ""], ["status", ""], ["created_at", "2020-05-19 15:21:19.513313"], ["updated_at", "2020-05-19 15:21:19.513313"], ["user_id", 3]]
+  ↳ app/controllers/profiles_controller.rb:26:in `create'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/profiles_controller.rb:26:in `create'
+Completed 201 Created in 13ms (Views: 1.2ms | ActiveRecord: 5.7ms | Allocations: 2790)
+
+
+Started GET "/users" for ::1 at 2020-05-19 11:21:30 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.4ms | Allocations: 1598)
+
+
+Started GET "/users/3/profile" for ::1 at 2020-05-19 11:21:53 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"3"}
+  [1m[36mProfile Load (2.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 6ms (Views: 2.9ms | ActiveRecord: 2.4ms | Allocations: 1079)
+
+
+Started POST "/auth/login" for ::1 at 2020-05-19 11:26:12 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"auth"=>{"email"=>"example3@gmail.com", "password"=>"[FILTERED]"}, "authentication"=>{"auth"=>{"email"=>"example3@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example3@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 258ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 1001)
+
+
+Started GET "/users" for ::1 at 2020-05-19 11:26:13 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.2ms | Allocations: 1598)
+
+
+Started GET "/users/3/profile" for ::1 at 2020-05-19 11:26:14 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"3"}
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.3ms | Allocations: 1079)
+
+
+Started GET "/users/3/profile" for ::1 at 2020-05-19 11:26:21 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"3"}
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.4ms | Allocations: 1079)
+
+
+Started PUT "/profiles/3" for ::1 at 2020-05-19 11:26:27 -0400
+Processing by ProfilesController#update as HTML
+  Parameters: {"profile"=>{"id"=>3, "full_name"=>"Lia Kapanadze", "title"=>"Web Developer", "department"=>"", "status"=>"", "created_at"=>"2020-05-19T15:21:19.513Z", "updated_at"=>"2020-05-19T15:21:19.513Z", "user_id"=>3}, "id"=>"3"}
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:50:in `set_profile'
+[31mUnpermitted parameters: :id, :created_at, :updated_at[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/profiles_controller.rb:35:in `update'
+  [1m[36mProfile Update (0.4ms)[0m  [1m[33mUPDATE "profiles" SET "title" = $1, "updated_at" = $2 WHERE "profiles"."id" = $3[0m  [["title", "Web Developer"], ["updated_at", "2020-05-19 15:26:27.391113"], ["id", 3]]
+  ↳ app/controllers/profiles_controller.rb:35:in `update'
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/profiles_controller.rb:35:in `update'
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 2.1ms | Allocations: 3329)
+
+
+Started GET "/users/3/profile" for ::1 at 2020-05-19 11:26:29 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"3"}
+  [1m[36mProfile Load (1.2ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 1.2ms | Allocations: 1079)
+
+
+Started GET "/users" for ::1 at 2020-05-19 11:26:34 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.4ms | Allocations: 1598)
+
+
+Started GET "/users/3/profile" for ::1 at 2020-05-19 11:26:36 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"3"}
+  [1m[36mProfile Load (0.7ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.7ms | Allocations: 1079)
+
+
+Started POST "/auth/login" for ::1 at 2020-05-19 11:27:43 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"auth"=>{"email"=>"example3@gmail.com", "password"=>"[FILTERED]"}, "authentication"=>{"auth"=>{"email"=>"example3@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example3@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 247ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 1001)
+
+
+Started GET "/users" for ::1 at 2020-05-19 11:27:43 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.3ms | Allocations: 1598)
+
+
+Started POST "/auth/login" for ::1 at 2020-05-19 11:29:30 -0400
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthenticationController#login as HTML
+  Parameters: {"auth"=>{"email"=>"example3@gmail.com", "password"=>"[FILTERED]"}, "authentication"=>{"auth"=>{"email"=>"example3@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example3@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 312ms (Views: 0.3ms | ActiveRecord: 8.1ms | Allocations: 8794)
+
+
+Started GET "/users" for ::1 at 2020-05-19 11:29:31 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.3ms | Allocations: 1647)
+
+
+Started GET "/users/3/profile" for ::1 at 2020-05-19 11:29:33 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"3"}
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 16ms (Views: 9.5ms | ActiveRecord: 3.6ms | Allocations: 6592)
+
+

@@ -6,6 +6,7 @@ class ProfileForm extends Component{
     super(props);
     this.state = {
       profileData: {
+        id: '',
         full_name: '',
         title: '',
         department: '',
@@ -19,9 +20,10 @@ class ProfileForm extends Component{
 
   async componentDidMount() {
     const response = await readOneProfile(this.props.currentUser.id)
-    if (response) {
+    if (response.length > 0) {
+      console.log('say whoop')
       this.setState({
-        userData: response,
+        profileData: response[0],
         modified: true
       })
     }
@@ -41,6 +43,7 @@ class ProfileForm extends Component{
   handleUpdate = async (e) => {
     e.preventDefault();
     console.log('userData before Update', this.state.profileData)
+    console.log('modified', this.state.modified)
     this.state.modified ? updateProfile(this.state.profileData) : createProfile(this.state.profileData)
   }
 

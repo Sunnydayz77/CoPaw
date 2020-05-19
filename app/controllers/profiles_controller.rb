@@ -10,6 +10,12 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1
   def show
+    @profile = Profile.where({user_id: params[:user_id]})
+    render json: @profile
+  end
+
+  def find_profile
+    @profile = Profile.where({user_id: params[:user_id]})
     render json: @profile
   end
 
