@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { readOneProfile } from '../services/user-helper'
 import { twitter_svg, linkedin_svg, ig_svg } from '../services/svg'
 
-class SubComments extends Component {
+class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,7 +14,7 @@ class SubComments extends Component {
   }
 
   async componentDidMount() {
-    const response = await readOneProfile(this.props.currentUser.id)
+    const response = await readOneProfile(this.props.user_id)
     if (response.length > 0) {
       this.setState({
         profileData: response[0]
@@ -22,7 +22,7 @@ class SubComments extends Component {
     }
     else {
       this.setState({
-        defaultMessage: 'Please edit your profile'
+        defaultMessage: 'User has not updated their profile yet'
       })
     }
   }
@@ -79,4 +79,4 @@ class SubComments extends Component {
 }
 
 
-export default SubComments
+export default Profile
