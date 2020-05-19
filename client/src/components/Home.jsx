@@ -20,10 +20,10 @@ class Home extends Component {
   render() {
     const { userData } = this.state
     console.log('userData', userData)
-    const users = userData.length == 0 ? '' : userData.map( (user, index) => {
+    const users = userData.length === 0 ? '' : userData.map( (user, index) => {
       return (
         <div className='user-card' key={index}>
-          <a>{user.email}</a>
+          <p>{user.email}</p>
         </div>
         )
     })

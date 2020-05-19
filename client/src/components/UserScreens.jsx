@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Route, withRouter } from 'react-router-dom'
+import React from 'react'
+import { Route} from 'react-router-dom'
 import Home from './Home'
 import Profile from './Profile'
 import ProfileForm from './ProfileForm'

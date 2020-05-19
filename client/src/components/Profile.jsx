@@ -28,19 +28,21 @@ class SubComments extends Component {
 
 
   render() {
-    const {profileData, defaultMessage} = this.state
+    const { profileData, defaultMessage } = this.state
+    console.log(profileData)
     return (
       <div className='subComments-display'>
         <h1>profile display</h1>
         <Link to='/edit-profile'>
           <button>Edit</button>
         </Link>
-        <a>{defaultMessage}</a>
-        <a>{this.props.currentUser.email}</a>
-        <a>{profileData.full_name}</a>
-        <a>{profileData.title}</a>
-        <a>{profileData.department}</a>
-        <a>{profileData.status}</a>
+        <p>{defaultMessage}</p>
+        <p>{this.props.currentUser.email}</p>
+        <p>{profileData.full_name}</p>
+        <p>{profileData.title}</p>
+        <p>{profileData.department}</p>
+        <p>{profileData.status}</p>
+        <p>{profileData.twitter_url}</p>
       </div>
     )
 
