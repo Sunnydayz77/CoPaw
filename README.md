@@ -134,14 +134,6 @@ Marvel: (?) <br>
 |                      | PUT      | /users/:id(.:format)                                               |  users#update                 |
 |                      | DELETE   | /users/:id(.:format)                                               |  users#destroy                |
 
-
-<br>
-
-### SWOT Analysis
-
-<!-- Strengths going into the project include my design skills and thoroughness in completion of projects. I pride myself on being very detail-oriented. Weaknesses and opportunities include re-learning how functions and classes are written in react. Threats include breaking of auth and back-end code, which I can anticipate for with my task time estimates and reach out to my resources during the project.<br> -->
-
-
 <br>
 
 ***
