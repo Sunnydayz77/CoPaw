@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import readAllUsers from '../services/user-helper'
+import { readAllUsers } from '../services/user-helper'
 
 class Home extends Component {
   constructor(props) {
@@ -9,18 +9,20 @@ class Home extends Component {
     }
   }
 
-  componentDidMount() {
+  async componentDidMount() {
+    const response = await readAllUsers()
     this.setState({
-      userData: readAllUsers().data
+      userData: response
     })
   }
 
    
   render() {
-    const {userData} = this.state
-    const users = userData.length == 0 ? '' : userData.map(user => {
+    const { userData } = this.state
+    console.log('userData', userData)
+    const users = userData.length == 0 ? '' : userData.map( (user, index) => {
       return (
-        <div className='user-card'>
+        <div className='user-card' key={index}>
           <a>{user.email}</a>
         </div>
         )
@@ -28,7 +30,7 @@ class Home extends Component {
 
     return (
       <div className='landing'>
-        <h3>{`Hello ${props.currentUser.username}`}</h3>
+        <h3>{`Hello ${this.props.currentUser.email}`}</h3>
         {users}
       </div>
     )

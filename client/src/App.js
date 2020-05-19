@@ -1,10 +1,11 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { Route, withRouter } from 'react-router-dom'
 
 import Landing from './components/Landing'
 import Register from './components/Register'
 import Login from './components/Login'
 import Header from './components/Header'
+import UserScreens from './components/UserScreens'
 
 import './App.css';
 
@@ -91,18 +92,9 @@ class App extends Component {
           history={this.props.history}
         />
 
-        {this.state.currentUser ?
-          <div className='user-screens'>
-            <Route
-              exact path="/"
-              render={() => (
-                <div>
-                  <Landing currentUser={this.state.currentUser} />
-                </div>
-              )}
-            />
-
-          </div> :
+        {!this.state.currentUser ?
+          
+          //screens to show when logged out
           <div className='public-screens'>
             <Route
               exact path="/"
@@ -126,6 +118,11 @@ class App extends Component {
                 handleChange={this.authHandleChange}
                 formData={this.state.authFormData} />)} />
           </div>
+
+          :
+        
+          //screens to show when logged in
+        <UserScreens currentUser={this.state.currentUser}/>
         }
 
       </div>

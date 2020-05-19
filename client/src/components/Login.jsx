@@ -11,7 +11,7 @@ const Login = (props) => {
         <form className='auth-form' onSubmit={(e) => {
           e.preventDefault();
           props.handleLogin();
-          props.history.push('/clubs');
+          props.history.push('/home');
         }} >
           <p>Email:</p>
           <input name="email" type="text" value={props.formData.email} onChange={props.handleChange} />

@@ -1,35 +1,31 @@
 import React, { Component } from 'react'
-import ProfileForm from './ProfileForm'
-import ProfileDisplay from './ProfileDisplay'
+import { Link } from 'react-router-dom'
 
-class Profile extends Component {
+
+class SubComments extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      edit: false
     }
 
   }
 
-  modeSwitch = () => {
-    this.setState({
-      edit: !this.state.edit
-    })
-  }
-
 
   render() {
-    const profileMode = !this.state.mode ? <ProfileDisplay /> : <ProfileForm />
-    const modeButton = !this.state.mode ? <button onClick={this.modeSwitch}>Edit</button> : <button onClick={this.modeSwitch}>Save</button>
 
     return (
-      <div className='employee-profile'>
-        <h1>Dis the employee profile</h1>
-        {modeButton}
-        {profileMode}
+      <div className='subComments-display'>
+        <h1>profile display</h1>
+        <Link to='/edit-profile'>
+          <button>Edit</button>
+        </Link>
+        <a>{this.props.currentUser.email}</a>
       </div>
     )
+
   }
+
 }
 
-export default Profile
+
+export default SubComments
