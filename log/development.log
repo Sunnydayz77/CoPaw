@@ -8145,3 +8145,212 @@ Processing by AuthenticationController#verify as HTML
 Completed 200 OK in 58ms (Views: 0.3ms | ActiveRecord: 44.5ms | Allocations: 8588)
 
 
+Started GET "/auth/verify" for ::1 at 2020-05-20 11:03:00 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 20ms (Views: 0.4ms | ActiveRecord: 4.3ms | Allocations: 8585)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-20 11:03:24 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 870)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-20 11:04:10 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 870)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-20 11:04:13 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 870)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-20 11:04:36 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 852)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-20 11:06:42 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 1.7ms | Allocations: 854)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-20 11:06:59 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 852)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-20 11:07:01 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 852)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-20 11:13:16 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 953)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-20 11:13:19 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 852)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-20 11:13:30 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 852)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-20 11:14:10 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 852)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-20 11:14:20 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 852)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-20 11:14:26 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 852)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-20 11:23:19 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 14ms (Views: 3.4ms | ActiveRecord: 0.8ms | Allocations: 940)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-20 11:24:04 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 11ms (Views: 1.2ms | ActiveRecord: 2.7ms | Allocations: 852)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-20 11:24:06 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 852)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-20 11:24:08 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 852)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-20 11:24:43 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 8ms (Views: 1.6ms | ActiveRecord: 0.4ms | Allocations: 852)
+
+
+Started GET "/users/3/profile" for ::1 at 2020-05-20 11:24:44 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"3"}
+  [1m[36mProfile Load (35.5ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 133ms (Views: 4.6ms | ActiveRecord: 109.6ms | Allocations: 2342)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-20 11:28:34 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 25ms (Views: 4.3ms | ActiveRecord: 1.2ms | Allocations: 852)
+
+
+Started GET "/users/3/profile" for ::1 at 2020-05-20 11:28:35 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"3"}
+  [1m[36mProfile Load (6.8ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 18ms (Views: 8.6ms | ActiveRecord: 6.8ms | Allocations: 949)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-20 11:31:09 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (7.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 19ms (Views: 3.8ms | ActiveRecord: 7.0ms | Allocations: 852)
+
+
+Started GET "/users/3/profile" for ::1 at 2020-05-20 11:31:09 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"3"}
+  [1m[36mProfile Load (6.9ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 18ms (Views: 10.3ms | ActiveRecord: 6.9ms | Allocations: 949)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-20 11:31:20 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (7.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 44ms (Views: 6.6ms | ActiveRecord: 7.8ms | Allocations: 852)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-20 11:32:25 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 5ms (Views: 1.3ms | ActiveRecord: 1.2ms | Allocations: 852)
+
+
+Started GET "/users/3/profile" for ::1 at 2020-05-20 11:32:28 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"3"}
+  [1m[36mProfile Load (17.8ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 22ms (Views: 1.9ms | ActiveRecord: 17.8ms | Allocations: 947)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-20 11:33:34 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (9.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 15ms (Views: 0.2ms | ActiveRecord: 9.3ms | Allocations: 852)
+
+
+Started GET "/users/3/profile" for ::1 at 2020-05-20 11:33:34 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"3"}
+  [1m[36mProfile Load (1.1ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 1.1ms | Allocations: 947)
+
+

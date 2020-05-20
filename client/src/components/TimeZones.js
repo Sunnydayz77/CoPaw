@@ -1,4 +1,4 @@
-let TimeZones = [
+export const Timezones = [
   {"value":"America/Adak","name":"Adak"},
   {"value":"America/Anchorage","name":"Anchorage"},
   {"value":"America/Anguilla","name":"Anguilla"},

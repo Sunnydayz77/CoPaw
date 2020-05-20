@@ -16,8 +16,7 @@ class MyProfile extends Component {
   }
 
   async componentDidMount() {
-    const { match: { params } } = this.props;
-    const response = await readOneProfile(params.user_id)
+    const response = await readOneProfile(this.props.currentUser.id)
     if (response.length > 0) {
       this.setState({
         profileData: response[0]
