@@ -1,41 +1,56 @@
+html{
+  --blue: #0049d4;
+  --marine-blue: #002468;
+  --navy-blue:#001b4f;
+  background-image: linear-gradient(to bottom, var(--blue), var(--blue), var(--marine-blue), var(--navy-blue));
+}
+
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin: 0px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 79px 104px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header-logo{
+  width: 217px;
+  height: 53px;
 }
+
+.login-link{
+width: 255px;
+height: 26px;
+font-family: Rubik;
+font-size: 20px;
+text-decoration: none;
+color: white;
+}
+
+.register-button {
+  width: 160px;
+  height: 65px;
+  border-radius: 62.5px;
+  background-color: white;
+  font-family: Rubik;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--blue);
+}
+
+.wufph{
+  font-size: 65px;
+  font-family: Rubik;
+}
+
+
 
 a{
   margin: 10px;

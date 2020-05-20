@@ -1,16 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Paw from '../services/Paw.png'
+
 
 export default function Landing() {
   return (
     <div className='landing'>
-      <h3>Welcome to CoPaw, please login or register to get started</h3>
-      <Link to='/login'>
-        <button>Login</button>
-      </Link>
-      <Link to='/register'>
-        <button>Register</button>
-      </Link>
+      <img src={Paw} />
+      <p className='wufph'>wufph.</p>
+      <p>A new way to connect with Datadog
+       <br/>- worldwide
+      </p>
     </div>
   )
 }

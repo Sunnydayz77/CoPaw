@@ -10,7 +10,7 @@ function UserScreens(props) {
   return (
     <div className='user-screens'>
 
-      <Route exact path="/home"
+      <Route exact path="/"
         render={() => (
           <div>
             <Home currentUser={props.currentUser} />
