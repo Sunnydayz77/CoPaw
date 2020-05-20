@@ -1,37 +1,41 @@
 import React, {Component} from 'react'
-import { readAllUsers } from '../services/user-helper'
+import { readAllUsers, readAllProfiles } from '../services/user-helper'
+import { Link } from 'react-router-dom'
 
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userData: []
+      profileData: []
     }
   }
 
   async componentDidMount() {
-    const response = await readAllUsers()
+    const response = await readAllProfiles()
     this.setState({
-      userData: response
+      profileData: response
     })
   }
 
    
   render() {
-    const { userData } = this.state
-    console.log('userData', userData)
-    const users = userData.length === 0 ? '' : userData.map( (user, index) => {
+    const { profileData } = this.state
+    const profiles = profileData.length === 0 ? '' : profileData.map( (profile, index) => {
       return (
         <div className='user-card' key={index}>
-          <p>{user.email}</p>
+          
+          <Link className='user-card' to={`/profile/${profile.user_id}`}>
+            <p>{profile.full_name}</p>
+            <p>{profile.title}</p>
+            <p>{profile.office}</p>
+          </Link>
         </div>
         )
     })
 
     return (
       <div className='landing'>
-        <h3>{`Hello ${this.props.currentUser.email}`}</h3>
-        {users}
+        {profiles}
       </div>
     )
     

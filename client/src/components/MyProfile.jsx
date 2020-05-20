@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { readOneProfile } from '../services/user-helper'
 import { twitter_svg, linkedin_svg, ig_svg } from '../services/svg'
+import CreateInterest from './CreateInterest'
 
 class MyProfile extends Component {
   constructor(props) {
@@ -14,8 +15,7 @@ class MyProfile extends Component {
   }
 
   async componentDidMount() {
-    const { match: { params } } = this.props;
-    const response = await readOneProfile(params.user_id)
+    const response = await readOneProfile(this.props.currentUser.id)
     if (response.length > 0) {
       this.setState({
         profileData: response[0]
@@ -31,10 +31,9 @@ class MyProfile extends Component {
 
   render() {
     const { profileData, defaultMessage } = this.state
-    console.log(profileData)
     return (
       <div className='subComments-display'>
-
+        <CreateInterest profile_id={profileData.id}/>
         <Link to='/edit-profile'>
           <button>Edit</button>
         </Link>

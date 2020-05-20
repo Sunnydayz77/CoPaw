@@ -10,7 +10,7 @@ class Profile extends Component {
       profileData: '',
       defaultMessage: ''
     }
-
+    console.log('profile props', props)
   }
 
   async componentDidMount() {
