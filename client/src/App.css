@@ -45,12 +45,18 @@ color: white;
   color: var(--blue);
 }
 
+/* div.logged-in-header {
+  display: inline;
+}
+
+button.logout-button {
+  display: inline;
+} */
+
 .wufph{
   font-size: 65px;
   font-family: Rubik;
 }
-
-
 
 a{
   margin: 10px;
@@ -68,4 +74,24 @@ img{
 
 .profile-section{
   border: solid 1px grey;
+}
+
+a:link {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+a:hover {
+  color: rebeccapurple !important;;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+  color: white;
 }
