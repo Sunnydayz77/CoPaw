@@ -20,7 +20,7 @@ export default class TimeZone extends Component {
   render() {
     return (
       <div>
-        <h1>Select box for Timezones</h1>
+        <p>Select your timezone: </p>
         <select value={this.state.timezone} onChange={this.onSelect}>
           {Timezones.map((timezone) => <option value={timezone.value}>{timezone.name}</option>)} 
         </select>
