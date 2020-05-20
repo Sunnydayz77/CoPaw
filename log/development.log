@@ -14718,3 +14718,33 @@ Completed 200 OK in 58ms (Views: 0.3ms | ActiveRecord: 44.5ms | Allocations: 858
 >>>>>>> ee1c1e2b7093e5422b4ea10e43e69170c89dee04
 
 
+Started POST "/auth/login" for ::1 at 2020-05-20 12:58:50 -0400
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthenticationController#login as HTML
+  Parameters: {"auth"=>{"email"=>"example2@gmail.com", "password"=>"[FILTERED]"}, "authentication"=>{"auth"=>{"email"=>"example2@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 345ms (Views: 0.3ms | ActiveRecord: 18.3ms | Allocations: 8801)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-20 12:59:01 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (90.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 208ms (Views: 0.2ms | ActiveRecord: 90.9ms | Allocations: 988)
+
+
+Started GET "/profiles" for ::1 at 2020-05-20 12:59:01 -0400
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (44.2ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/controllers/profiles_controller.rb:8:in `index'
+Completed 200 OK in 258ms (Views: 63.9ms | ActiveRecord: 182.0ms | Allocations: 16274)
+
+
+Started GET "/profiles" for ::1 at 2020-05-20 12:59:06 -0400
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/controllers/profiles_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.4ms | Allocations: 1504)
+
+
