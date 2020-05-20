@@ -4,7 +4,6 @@ import { readOneProfile } from '../services/user-helper'
 import { twitter_svg, linkedin_svg, ig_svg } from '../services/svg'
 import CreateInterest from './CreateInterest'
 import Timer from './Timer';
-import TimeZone from './TimeZone';
 
 class MyProfile extends Component {
   constructor(props) {
@@ -31,8 +30,13 @@ class MyProfile extends Component {
   }
 
 
+  
   render() {
     const { profileData, defaultMessage } = this.state
+    const {timezone} = profileData
+    console.log('profdata', profileData)
+    console.log('profiledata.timezone', timezone)
+    const timer = !profileData ? '' :     <Timer differenceUTC={timezone} />
     return (
       <div className='subComments-display'>
         <CreateInterest profile_id={profileData.id}/>
@@ -41,12 +45,10 @@ class MyProfile extends Component {
         </Link>
         <p>{defaultMessage}</p>
         <div className='profile-section'>
-        {/* eslint-disable-next-line */}
           <img src={profileData.img_url} />
           <h1>{profileData.full_name}</h1>
           <p>{profileData.title} | {profileData.department}</p>
-          <Timer />
-          <TimeZone />
+          {timer}
         </div>
 
         <div className='profile-section'>

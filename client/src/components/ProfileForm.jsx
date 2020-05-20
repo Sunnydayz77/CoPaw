@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { updateProfile, readOneProfile, createProfile } from '../services/user-helper'
+import { Timezones } from './TimeZones.js';
 
 class ProfileForm extends Component {
   constructor(props) {
@@ -21,7 +22,8 @@ class ProfileForm extends Component {
         mobile: '',
         landline: '',
         office: '',
-        personal_email: ''
+        personal_email: '',
+        timezone: ''
       },
       modified: false,
       offices: [{ 'New York, NY': '10018' }, { 'Boston, MA': '02110' }, { 'Paris, France': '75009' }]
@@ -94,6 +96,10 @@ class ProfileForm extends Component {
               />
             </div>
 
+            <select name='timezone' onChange={this.handleChange}>
+              <option value="">Choose Timezone</option>
+              {Timezones.map((timezone, index) => <option key={index} value={timezone.value}>{timezone.name}</option>)}
+            </select>
           </div>
 
           <div className='profile-section'>
@@ -176,7 +182,7 @@ class ProfileForm extends Component {
                 value={this.state.profileData.business_address} onChange={this.handleChange}
               />
             </div>
-            
+
           </div>
 
 

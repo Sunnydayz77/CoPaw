@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { readOneProfile } from '../services/user-helper'
 import { twitter_svg, linkedin_svg, ig_svg } from '../services/svg'
+import Timer from './Timer';
 
 class Profile extends Component {
   constructor(props) {
@@ -30,19 +31,16 @@ class Profile extends Component {
 
   render() {
     const { profileData, defaultMessage } = this.state
-    console.log(profileData)
+    const {timezone} = profileData
+    const timer = !profileData ? '' :     <Timer differenceUTC={timezone} />
     return (
       <div className='subComments-display'>
-
-        <Link to='/edit-profile'>
-          <button>Edit</button>
-        </Link>
         <p>{defaultMessage}</p>
         <div className='profile-section'>
           <img src={profileData.img_url} />
           <h1>{profileData.full_name}</h1>
           <p>{profileData.title} | {profileData.department}</p>
-          <p>*Local Time* | *Weather* </p>
+          {timer}
         </div>
 
         <div className='profile-section'>
