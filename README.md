@@ -73,7 +73,7 @@ Marvel: (?) <br>
 
 ### ERD (Entity Relationship Diagram)
 
-![Entity Relationship Diagram](assets/CoPawERD.png)
+![Entity Relationship Diagram](assets/ERD.png)
 
 <br>
 
