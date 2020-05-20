@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { readOneProfile } from '../services/user-helper'
 import { twitter_svg, linkedin_svg, ig_svg } from '../services/svg'
+import CreateInterest from './CreateInterest'
 import Timer from './Timer';
 import TimeZone from './TimeZone';
 
@@ -32,10 +33,9 @@ class MyProfile extends Component {
 
   render() {
     const { profileData, defaultMessage } = this.state
-    console.log(profileData)
     return (
       <div className='subComments-display'>
-
+        <CreateInterest profile_id={profileData.id}/>
         <Link to='/edit-profile'>
           <button>Edit</button>
         </Link>

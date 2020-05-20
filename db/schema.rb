@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_19_184306) do
+ActiveRecord::Schema.define(version: 2020_05_20_003527) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "Interests_Profiles", id: false, force: :cascade do |t|
+    t.bigint "Profile_id", null: false
+    t.bigint "Interest_id", null: false
+  end
+
+  create_table "interests", force: :cascade do |t|
+    t.string "text"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "interests_profiles", id: false, force: :cascade do |t|
+    t.bigint "interest_id", null: false
+    t.bigint "profile_id", null: false
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.string "full_name"

@@ -6,7 +6,7 @@ export default function Nav() {
     <div className='nav'>
       <Link to='/home'>Home</Link>
       <Link to='/townhall'>Town Hall</Link>
-      <Link to='/lounge'>Lounge</Link>
+      <Link to='/community'>Community</Link>
       <Link to='/my-profile'>My Profile</Link>
     </div>
   )
