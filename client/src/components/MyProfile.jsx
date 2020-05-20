@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { readOneProfile } from '../services/user-helper'
 import { twitter_svg, linkedin_svg, ig_svg } from '../services/svg'
 import Timer from './Timer';
+import TimeZone from './TimeZone';
 
 class MyProfile extends Component {
   constructor(props) {
@@ -46,6 +47,7 @@ class MyProfile extends Component {
           <h1>{profileData.full_name}</h1>
           <p>{profileData.title} | {profileData.department}</p>
           <Timer />
+          <TimeZone />
         </div>
 
         <div className='profile-section'>
