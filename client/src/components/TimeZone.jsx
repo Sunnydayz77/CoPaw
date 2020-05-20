@@ -6,7 +6,7 @@ export default class TimeZone extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      timezone:[]
+      timezone:''
     }
     console.log(Timezones)
   }

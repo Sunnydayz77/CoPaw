@@ -8354,3 +8354,19 @@ Processing by ProfilesController#find_profile as HTML
 Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 1.1ms | Allocations: 947)
 
 
+Started GET "/auth/verify" for ::1 at 2020-05-20 11:44:16 -0400
+  [1m[35m (6.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 40ms (Views: 0.3ms | ActiveRecord: 25.6ms | Allocations: 8588)
+
+
+Started GET "/users/3/profile" for ::1 at 2020-05-20 11:44:17 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"3"}
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 6ms (Views: 1.7ms | ActiveRecord: 2.1ms | Allocations: 2231)
+
+
