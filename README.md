@@ -55,7 +55,7 @@ Nobody dropping by your desk uninvited anymore? Give us a week to change that :s
 Marvel: (?) <br>
 
 #### Homepage
-![?](?)
+![Homepage](assets/HomePage.png)
 
 #### Sign Up
 ![?](?)
@@ -158,13 +158,14 @@ Heroku(Back-end): (?) <br>
 2. CD into repository
 3. Run 'bundle install'
 4. Run 'rails db:create'
-5. Run 'rails db:migrate'
+5. Run 'rails db:migrate RAILS_ENV=development'
 6. Run 'rails db:seed'
 7. Run 'rails server' on 'http://localhost:3000/'
 8. Create new terminal tab with 'command' + 't' on mac
 9. CD in to client folder
 10. Run 'npm install'
-11. Run 'npm start' on 'http://localhost:3001/'
+11. Run 'npm install --save axios'
+12. Run 'npm start' on 'http://localhost:3001/'
 
 
 #### Helper Functions

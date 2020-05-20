@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { readOneProfile } from '../services/user-helper'
 import { twitter_svg, linkedin_svg, ig_svg } from '../services/svg'
+import Timer from './Timer';
 
 class MyProfile extends Component {
   constructor(props) {
@@ -40,10 +41,11 @@ class MyProfile extends Component {
         </Link>
         <p>{defaultMessage}</p>
         <div className='profile-section'>
+        {/* eslint-disable-next-line */}
           <img src={profileData.img_url} />
           <h1>{profileData.full_name}</h1>
           <p>{profileData.title} | {profileData.department}</p>
-          <p>*Local Time* | *Weather* </p>
+          <Timer date={new Date()}/>
         </div>
 
         <div className='profile-section'>
