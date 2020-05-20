@@ -45,7 +45,7 @@ class MyProfile extends Component {
           <img src={profileData.img_url} />
           <h1>{profileData.full_name}</h1>
           <p>{profileData.title} | {profileData.department}</p>
-          <Timer date={new Date()}/>
+          <Timer />
         </div>
 
         <div className='profile-section'>
