@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route} from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import Home from './Home'
 import MyProfile from './MyProfile'
 import ProfileForm from './ProfileForm'
@@ -35,7 +35,7 @@ function UserScreens  (props) {
         <Route exact path={`/profile/:user_id`}
         render={() => (
           <div>
-            <Profile/>
+            <MyProfile/>
           </div>
         )}
         />
