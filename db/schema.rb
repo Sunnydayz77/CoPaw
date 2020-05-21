@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_20_172121) do
+ActiveRecord::Schema.define(version: 2020_05_21_205552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,27 @@ ActiveRecord::Schema.define(version: 2020_05_20_172121) do
   create_table "Interests_Profiles", id: false, force: :cascade do |t|
     t.bigint "Profile_id", null: false
     t.bigint "Interest_id", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "text"
+    t.integer "user_id"
+    t.integer "profile_id"
+    t.string "full_name"
+    t.bigint "discussion_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["discussion_id"], name: "index_comments_on_discussion_id"
+  end
+
+  create_table "discussions", force: :cascade do |t|
+    t.string "text"
+    t.integer "profile_id"
+    t.string "full_name"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_discussions_on_user_id"
   end
 
   create_table "interests", force: :cascade do |t|
@@ -64,5 +85,7 @@ ActiveRecord::Schema.define(version: 2020_05_20_172121) do
     t.string "status"
   end
 
+  add_foreign_key "comments", "discussions"
+  add_foreign_key "discussions", "users"
   add_foreign_key "profiles", "users"
 end
