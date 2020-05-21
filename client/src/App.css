@@ -160,3 +160,18 @@ div.landing {
 .purple-text {
   color:  #CA81FF;
 }
+
+Footer {
+  font-family: 'Rubik', sans-serif;
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 0.5rem; 
+}
