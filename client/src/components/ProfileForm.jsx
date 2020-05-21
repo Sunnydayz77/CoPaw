@@ -67,8 +67,7 @@ class ProfileForm extends Component {
     })
     return (
 
-        <form className='profile-form' onSubmit={this.handleUpdate} >
-          <button>Update</button>
+        <form className='profile-form' onSubmit={this.handleUpdate}>
 
           <div className='profile'>
 
@@ -79,21 +78,25 @@ class ProfileForm extends Component {
                 <div className='profile-section'>
                   <input name="img_url" type="text" placeholder='https://imgur.com/vhSVnZT'
                     value={this.state.profileData.img_url} onChange={this.handleChange}
-                  />
-                  <div>
+                  /> 
+                  
                     <input name="full_name" type="text" placeholder='Full Name'
                       value={this.state.profileData.full_name} onChange={this.handleChange}
-                    />
+                    /> 
                     <input name="title" type="text" placeholder='Solutions Engineer'
                       value={this.state.profileData.title} onChange={this.handleChange}
                     />
-                  </div>
+                
                 </div>
               </div>
 
 
               <div className='profile-section'>
-                <div>
+              <div>
+                <br />
+                <br />
+                <br />
+                
                   <p className='section-header'>Status</p>
                   <input name="status" type="text" placeholder='What are you up to these days outside of work? How are you feeling?'
                     value={this.state.profileData.status} onChange={this.handleChange}
@@ -128,7 +131,8 @@ class ProfileForm extends Component {
 
                 <div className='profile-section'>
                   <img src={departmentIcon} className='section-icon' />
-                  <div>
+                <div>
+                <p className='section-header'>Timezone</p>
                     <select name='timezone' onChange={this.handleChange}>
                       <option value="">Select One</option>
                       {Timezones.map((timezone, index) => <option key={index} value={timezone.value}>{timezone.name}</option>)}
@@ -173,7 +177,9 @@ class ProfileForm extends Component {
 
 
           </div>
-        </form>
+        
+        <button>Submit Update</button>
+      </form>
 
     )
   }

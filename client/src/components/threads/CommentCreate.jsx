@@ -11,26 +11,14 @@ class CommentCreate extends Component {
         text: '',
         user_id: props.user_id,
         profile_id: props.profile_id,
-        username: props.full_name,
+        full_name: props.profileData.full_name,
         discussion_id: props.thread_id
       },
       createdComment: null,
       comments: ''
     }
-
+    console.log('commentsprops', props)
   }
-
-
-  // getComments = async () => {
-  //   try {
-  //     const comments = await getComments(this.props.thread_id)
-  //     this.setState(
-  //       { comments: comments.data }
-  //     )
-  //   } catch (err) {
-  //     console.error('no comments yet')
-  //   }
-  // }
 
   handleChange = event => {
     const updatedField = { [event.target.name]: event.target.value }

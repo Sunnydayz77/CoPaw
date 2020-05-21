@@ -21,7 +21,7 @@ class Threads extends Component {
   render() {
 
     const { threads, user_id, profileData } = this.props
-    console.log(threads)
+    console.log('threads', this.props)
 
     const renderThreads = () => {
       
