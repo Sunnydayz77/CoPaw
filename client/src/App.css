@@ -138,6 +138,7 @@ div.landing {
 .container-text {
     display: inline-block;
     text-align: left;
+    padding: 0px;
     width: 45%;
     margin: 0;
     @media (max-width: 620px) {
@@ -159,6 +160,40 @@ div.landing {
 
 .purple-text {
   color:  #CA81FF;
+}
+
+.auth-form {
+  font-family: 'Rubik', sans-serif;
+}
+
+input {
+  width: 421px;
+  height: 45px;
+  border-radius: 62.5px;
+  background-color: white;
+  margin: 1;
+}
+
+button {
+  margin: 1;
+}
+
+.slack {
+  margin: auto;
+  color: #d5d5d6;
+}
+
+.password-min {
+  width: 319px;
+  height: 33px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #d5d5d6;
 }
 
 Footer {

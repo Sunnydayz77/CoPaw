@@ -31990,3 +31990,35 @@ Processing by ProfilesController#index as HTML
 Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.3ms | Allocations: 1507)
 
 
+Started POST "/auth/login" for ::1 at 2020-05-21 02:31:56 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthenticationController#login as HTML
+  Parameters: {"auth"=>{"email"=>"jap@gmail.com", "password"=>"[FILTERED]"}, "authentication"=>{"auth"=>{"email"=>"jap@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jap@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 283ms (Views: 0.3ms | ActiveRecord: 17.4ms | Allocations: 8801)
+
+
+Started GET "/users/1/profile" for ::1 at 2020-05-21 02:31:59 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mProfile Load (12.2ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 65ms (Views: 35.0ms | ActiveRecord: 20.3ms | Allocations: 17115)
+
+
+Started GET "/users/1/profile" for ::1 at 2020-05-21 02:31:59 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.4ms | Allocations: 1579)
+
+
+Started GET "/interests" for ::1 at 2020-05-21 02:31:59 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (0.9ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 15ms (Views: 2.2ms | ActiveRecord: 2.8ms | Allocations: 2899)
+
+
