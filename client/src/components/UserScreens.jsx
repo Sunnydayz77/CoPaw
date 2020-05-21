@@ -5,6 +5,7 @@ import MyProfile from './MyProfile'
 import ProfileForm from './ProfileForm'
 import Profile from './Profile'
 import Community from './Community'
+import Welcome from './Welcome'
 
 function UserScreens(props) {
   return (
@@ -40,11 +41,19 @@ function UserScreens(props) {
           return <Profile user_id={user_id} />
         }}
       />
-      
+
       <Route exact path="/community"
         render={() => (
           <div>
-            <Community/>
+            <Community />
+          </div>
+        )}
+      />
+
+      <Route exact path="/welcome"
+        render={() => (
+          <div>
+            <Welcome />
           </div>
         )}
       />
