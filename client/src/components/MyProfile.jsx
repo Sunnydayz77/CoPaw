@@ -35,11 +35,12 @@ class MyProfile extends Component {
     const { profileData, defaultMessage } = this.state
     return (
       <div className='my-profile'>
+        <p>{defaultMessage}</p>
+        <ProfileDetails user_id={this.props.currentUser.id}/>
+        
         <Link to='/edit-profile'>
           <button>Update Profile</button>
         </Link>
-        <p>{defaultMessage}</p>
-      <ProfileDetails user_id={this.props.currentUser.id}/>
 
       </div>
     )
