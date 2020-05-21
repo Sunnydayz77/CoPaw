@@ -69,7 +69,7 @@ class Community extends Component {
       <div className='community'>
         {interests}
         <div className='search-field'>
-          <p className='form-label'>Interest</p>
+          <p className='form-label'>Find Coworkers Based On Interest</p>
           <input name="interestQuery" type="text" placeholder='e.g., skiing'
             value={this.state.interestQuery} onChange={this.handleChange}
           />
