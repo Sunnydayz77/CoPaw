@@ -58,6 +58,14 @@ function UserScreens(props) {
         )}
       />
 
+      <Route exact path="/home"
+        render={() => (
+          <div>
+            <Home />
+          </div>
+        )}
+      />
+
     </div>
   )
 
