@@ -71,7 +71,7 @@ button {
   font-size: 20px;
   font-weight: 500;
   color: blue;
-  margin: 5px;
+  margin: 10px;
 }
 
 .wufph{
@@ -223,7 +223,34 @@ input {
 
 div.profile {
   margin: 0 auto;
+  max-height: 450px;
+  max-width: 1000px;
+  width: 900px;
 }
+
+/* div.update-profile {
+  max-width: 1000px;
+  width: 950px;
+} */
+
+div.profile input {
+  max-width: 370px;
+  max-height: 25px;
+}
+
+div.profile button {
+  width: 100px;
+  height: 40px;
+}
+
+div.profile-section {
+  max-width: 400px;
+}
+
+/* div.profile-top {
+  max-width: 400px;
+} */
+
 
 Footer {
   font-family: 'Rubik', sans-serif;
