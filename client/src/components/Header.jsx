@@ -18,8 +18,9 @@ export default function Header(props) {
 
         :
         <div className='logged-in-header'>
-            <Nav />
-            <Link><button className="logout-button" onClick={props.handleLogout}>Logout</button></Link>
+          <Nav
+            handleLogout={props.handleLogout}
+          />
         </div>
       }
 
