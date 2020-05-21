@@ -63,3 +63,9 @@ export const readAllInterests = async () => {
   const response = await api.get('/interests');
   return response.data;
 }
+
+export const readInterestsByProfile = async (profile_id) => {
+  console.log('profile_id')
+  const response = await api.get(`/interests/profile/${profile_id}`);
+  return response.data;
+}

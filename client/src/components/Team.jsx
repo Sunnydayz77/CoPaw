@@ -3,7 +3,7 @@ import { readAllUsers, readAllProfiles } from '../services/user-helper'
 import '../styles/Map.css'
 
 
-class Home extends Component {
+class Team extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,7 +14,7 @@ class Home extends Component {
   render() {
     return (
       <div className='landing' >
-        <h1>This will have threads</h1>
+        <h1>This will have TEAM threads</h1>
       </div>
     )
 
@@ -22,4 +22,4 @@ class Home extends Component {
 
 }
 
-export default Home;
+export default Team;
