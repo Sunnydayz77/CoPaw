@@ -24,7 +24,7 @@ class MyProfile extends Component {
     }
     else {
       this.setState({
-        defaultMessage: 'Please edit your profile'
+        defaultMessage: 'Please update your profile'
       })
     }
   }
@@ -36,10 +36,10 @@ class MyProfile extends Component {
     return (
       <div className='my-profile'>
         <Link to='/edit-profile'>
-          <button>Edit</button>
+          <button>Update Profile</button>
         </Link>
         <p>{defaultMessage}</p>
-       <ProfileDetails user_id={this.props.currentUser.id}/>
+      <ProfileDetails user_id={this.props.currentUser.id}/>
 
       </div>
     )

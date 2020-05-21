@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import { readAllProfiles, findInterest, readProfilesByInterest, readAllInterests } from '../services/user-helper'
+import { readAllProfiles, findInterest, readProfilesByInterest } from '../services/user-helper'
 import { Link } from 'react-router-dom'
+import '../styles/Community.css'
+import InterestTags from './InterestTags'
 
 class Community extends Component {
   constructor(props) {
@@ -16,67 +18,52 @@ class Community extends Component {
   }
 
   async componentDidMount() {
-    const profiles = await readAllProfiles()
-    const interests = await readAllInterests()
-    this.setState({
-      profileData: profiles,
-      interestData: interests
-    })
-  }
-
-  handleChange = event => {
-    this.setState({
-      [event.target.name]: event.target.value
-    })
-  }
-
-  handleSubmit = async event => {
-    event.preventDefault()
-    console.log(this.state.interestQuery)
-    const interest_id = await findInterest(this.state.interestQuery)
-    const response = await readProfilesByInterest(interest_id[0].id)
+    const interest_id = this.props.interest_id
+    const response = await readProfilesByInterest(interest_id)
     this.setState({
       profileData: response
     })
   }
 
+  styleFix = {
+    color: 'black'
+  }
 
   render() {
-    const { profileData, interestData } = this.state
-    console.log('prof data in render', profileData)
-    const profiles = profileData.length === 0 ? '' : profileData.map((profile, index) => {
-      return (
-        <div className='user-card' key={index}>
+    const { profileData } = this.state
 
-          <Link className='user-card' to={`/profile/${profile.user_id}`}>
-            <p>{profile.full_name}</p>
-            <p>{profile.title}</p>
-            <p>{profile.office}</p>
-          </Link>
+    const profiles = profileData.length === 0 ? <h1>No one is interested in that. Why are you?</h1> : profileData.map((profile, index) => {
+      return (
+        <div className='community-container' key={index}>
+          <p style={this.styleFix}>{`Showing results for ${profileData.length} community members`}</p>
+          <div className='community-card' >
+          <img src={profile.img_url} className='pic-large' />
+            <div className='community-card-section'>
+              <a href={`/profile/${profile.id}`} className='section-header' style={this.styleFix} >{profile.full_name}</a>
+                <p>{profile.title}</p>
+            </div>
+
+            <div className='community-card-section'>
+              <p className='section-header'>Status</p>
+              <p>{profile.status}</p>
+            </div>
+
+            <div className='community-card-section'>
+              <p className='section-header'>Interests</p>
+              <InterestTags profile_id={profile.id} />
+            </div>
+
+          </div>
         </div>
-      )
-    })
-
-    const interests = interestData.length === 0 ? '' : interestData.map((interest, index) => {
-      return (
-          <button >
-            {interest.text}
-          </button>
       )
     })
 
     return (
       <div className='community'>
-        {interests}
-        <div className='search-field'>
-          <p className='form-label'>Interest</p>
-          <input name="interestQuery" type="text" placeholder='e.g., skiing'
-            value={this.state.interestQuery} onChange={this.handleChange}
-          />
-          <button onClick={this.handleSubmit}>Search</button>
+        <div className='community-display'>
+          {profiles}
         </div>
 
-        {profiles}
       </div>
     )
 

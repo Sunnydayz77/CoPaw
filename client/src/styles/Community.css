@@ -1,0 +1,33 @@
+.community{
+  display: flex;
+  justify-content: center;
+}
+.community-display{
+  border-radius: 6px;
+  box-shadow: 0 -1px 6px 0 rgba(0, 0, 0, 0.5);
+  background-color: white;
+  width: 1032px;
+  padding: 36px;
+ 
+}
+
+.community-card{
+  display: flex;
+  flex-direction: row;
+  height: 84px;
+  margin: 0px 0px 26px 0px;
+}
+
+.community-card > * {
+  margin: 0px 20px 0px 0px;
+  color: black;
+  text-align: left;
+}
+
+.community-card-section{
+  width: 40%;
+}
+
+.community-card-section > a {
+  color: black;
+}

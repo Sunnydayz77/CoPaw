@@ -44,7 +44,7 @@ class ProfileDetails extends Component {
 
     const interests = interestData.length === 0 ? '' : interestData.map((interest, index) => {
       return (
-        <a href='' className='interest-tag' >
+        <a href='' className='interest-tag' key={index}>
           {interest.text}
         </a>
       )

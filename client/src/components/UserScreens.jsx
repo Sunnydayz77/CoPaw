@@ -4,8 +4,10 @@ import Home from './Home'
 import MyProfile from './MyProfile'
 import ProfileForm from './ProfileForm'
 import Profile from './Profile'
-import Community from './Community'
+import Map from './Map'
 import Welcome from './Welcome'
+import Team from './Team'
+import Community from './Community'
 
 function UserScreens(props) {
   return (
@@ -42,10 +44,17 @@ function UserScreens(props) {
         }}
       />
 
-      <Route exact path="/community"
+      <Route exact path={`/community/:interest_id`}
+        render={(props) => {
+          const { interest_id } = props.match.params;
+          return <Community interest_id={interest_id} />
+        }}
+      />
+
+      <Route exact path="/worldwide"
         render={() => (
           <div>
-            <Community />
+            <Map />
           </div>
         )}
       />
@@ -62,6 +71,14 @@ function UserScreens(props) {
         render={() => (
           <div>
             <Home />
+          </div>
+        )}
+      />
+
+      <Route exact path="/team"
+        render={() => (
+          <div>
+            <Team />
           </div>
         )}
       />

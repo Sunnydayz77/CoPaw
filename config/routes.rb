@@ -10,11 +10,9 @@ Rails.application.routes.draw do
 
   post '/profiles/:profile_id/interests/:interest_id', to: 'interests#add_profile'
 
-  #this should be a dropdown
   get '/profiles/byinterest/:interest_id', to: 'profiles#show_by_interest'
-  #string includes type of conditions
-  get '/profiles/byoffice/:office', to: 'profiles#show_by_office'
-  get '/profiles/byname/:full_name', to: 'profiles#show_by_office'
+
+  get '/interests/profile/:profile_id', to: 'interests#find_by_profile'
 
   resources :interests
   resources :profiles

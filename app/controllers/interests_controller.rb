@@ -18,6 +18,13 @@ class InterestsController < ApplicationController
     render json: @interests
   end
 
+  def find_by_profile
+    @profile = Profile.find(params[:profile_id])
+    @interests = @profile.interests
+
+    render json: @interests
+  end
+
   # POST /interests
   def create
 
