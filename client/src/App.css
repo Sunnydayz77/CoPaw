@@ -68,11 +68,6 @@ a{
   margin: 10px;
 }
 
-svg{
-  width: 50px;
-  height: 50px;
-}
-
 .paw-image {
   width: 348px;
   height: 283px;
@@ -82,10 +77,6 @@ svg{
 img{
   width: 200px;
   height: 200px;
-}
-
-.profile-section{
-  border: solid 1px grey;
 }
 
 a:link {

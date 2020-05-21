@@ -30726,6 +30726,116 @@ Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 852)
 >>>>>>> b939622b59f87a0508ee8fc1718334fe1e33a886
 
 
+<<<<<<< HEAD
+Started GET "/auth/verify" for ::1 at 2020-05-20 22:03:31 -0400
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 249ms (Views: 0.3ms | ActiveRecord: 16.9ms | Allocations: 8593)
+
+
+Started GET "/users/2/profile" for ::1 at 2020-05-20 22:03:32 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mProfile Load (0.9ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 61ms (Views: 30.6ms | ActiveRecord: 4.0ms | Allocations: 17399)
+
+
+Started GET "/users/2/profile" for ::1 at 2020-05-20 22:03:32 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mProfile Load (1.6ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 8ms (Views: 6.1ms | ActiveRecord: 1.6ms | Allocations: 1886)
+
+
+Started GET "/interests" for ::1 at 2020-05-20 22:03:32 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (0.5ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 16ms (Views: 7.7ms | ActiveRecord: 4.6ms | Allocations: 5524)
+
+
+Started POST "/auth/login" for ::1 at 2020-05-20 22:04:04 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"auth"=>{"email"=>"example2@gmail.com", "password"=>"[FILTERED]"}, "authentication"=>{"auth"=>{"email"=>"example2@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 252ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1197)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-20 22:04:19 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (13.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 16ms (Views: 0.3ms | ActiveRecord: 13.6ms | Allocations: 870)
+
+
+Started GET "/profiles" for ::1 at 2020-05-20 22:04:20 -0400
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/controllers/profiles_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.4ms | Allocations: 2133)
+
+
+Started GET "/profiles" for ::1 at 2020-05-20 22:04:23 -0400
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (13.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/controllers/profiles_controller.rb:8:in `index'
+Completed 200 OK in 18ms (Views: 4.1ms | ActiveRecord: 13.4ms | Allocations: 2150)
+
+
+Started GET "/interests" for ::1 at 2020-05-20 22:04:23 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (4.9ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 8ms (Views: 2.1ms | ActiveRecord: 4.9ms | Allocations: 1144)
+
+
+Started GET "/interests/keyword/skiing" for ::1 at 2020-05-20 22:04:39 -0400
+Processing by InterestsController#find_by_key as HTML
+  Parameters: {"keyword"=>"skiing"}
+  [1m[36mInterest Load (0.2ms)[0m  [1m[34mSELECT "interests".* FROM "interests" WHERE "interests"."text" = $1[0m  [["text", "skiing"]]
+  ↳ app/controllers/interests_controller.rb:18:in `find_by_key'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.2ms | Allocations: 1041)
+
+
+Started GET "/profiles/byinterest/3" for ::1 at 2020-05-20 22:04:39 -0400
+Processing by ProfilesController#show_by_interest as HTML
+  Parameters: {"interest_id"=>"3"}
+  [1m[36mInterest Load (0.3ms)[0m  [1m[34mSELECT "interests".* FROM "interests" WHERE "interests"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:24:in `show_by_interest'
+  [1m[36mProfile Load (1.2ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" INNER JOIN "interests_profiles" ON "profiles"."id" = "interests_profiles"."profile_id" WHERE "interests_profiles"."interest_id" = $1[0m  [["interest_id", 3]]
+  ↳ app/controllers/profiles_controller.rb:27:in `show_by_interest'
+Completed 200 OK in 69ms (Views: 24.5ms | ActiveRecord: 3.4ms | Allocations: 6855)
+
+
+Started GET "/profiles" for ::1 at 2020-05-20 22:04:56 -0400
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/controllers/profiles_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.3ms | Allocations: 2131)
+
+
+Started GET "/interests" for ::1 at 2020-05-20 22:04:56 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (0.3ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.3ms | Allocations: 1147)
+
+
+Started GET "/users/1/profile" for ::1 at 2020-05-20 22:04:58 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mProfile Load (0.7ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 5ms (Views: 2.7ms | ActiveRecord: 0.7ms | Allocations: 1265)
+
+
+Started GET "/users/1/profile" for ::1 at 2020-05-20 22:04:58 -0400
+=======
 Started GET "/auth/verify" for ::1 at 2020-05-20 16:33:56 -0400
   [1m[35m (5.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 Processing by AuthenticationController#verify as HTML
@@ -31329,10 +31439,38 @@ Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.5ms | Allocations: 949)
 
 
 Started GET "/users/1/profile" for ::1 at 2020-05-20 22:04:29 -0400
+>>>>>>> b3beec8327332186399c15ce5ae8a63ef0da6d0b
 Processing by ProfilesController#find_profile as HTML
   Parameters: {"user_id"=>"1"}
   [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 1]]
   ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+<<<<<<< HEAD
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.4ms | Allocations: 1265)
+
+
+Started GET "/interests" for ::1 at 2020-05-20 22:04:58 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (8.2ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 12ms (Views: 3.5ms | ActiveRecord: 8.2ms | Allocations: 1144)
+
+
+Started GET "/interests" for ::1 at 2020-05-20 22:04:58 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (0.9ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.9ms | Allocations: 1144)
+
+
+Started GET "/profiles" for ::1 at 2020-05-20 22:04:58 -0400
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/controllers/profiles_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.4ms | Allocations: 2131)
+
+
+Started GET "/users/1/profile" for ::1 at 2020-05-20 22:05:06 -0400
+=======
 Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.4ms | Allocations: 949)
 
 
@@ -31358,10 +31496,360 @@ Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.2ms | Allocations: 847)
 
 
 Started GET "/users/1/profile" for ::1 at 2020-05-20 22:04:32 -0400
+>>>>>>> b3beec8327332186399c15ce5ae8a63ef0da6d0b
 Processing by ProfilesController#find_profile as HTML
   Parameters: {"user_id"=>"1"}
   [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 1]]
   ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+<<<<<<< HEAD
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.3ms | Allocations: 1265)
+
+
+Started GET "/users/1/profile" for ::1 at 2020-05-20 22:05:06 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mProfile Load (0.9ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 8ms (Views: 5.3ms | ActiveRecord: 0.9ms | Allocations: 1265)
+
+
+Started GET "/interests" for ::1 at 2020-05-20 22:05:06 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (0.3ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.3ms | Allocations: 1144)
+
+
+Started GET "/interests" for ::1 at 2020-05-20 22:05:06 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (1.4ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 1.4ms | Allocations: 1144)
+
+
+Started GET "/profiles" for ::1 at 2020-05-20 22:05:06 -0400
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/controllers/profiles_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.5ms | Allocations: 2131)
+
+
+Started GET "/users/1/profile" for ::1 at 2020-05-20 22:05:19 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mProfile Load (36.9ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 40ms (Views: 2.2ms | ActiveRecord: 36.9ms | Allocations: 1265)
+
+
+Started GET "/users/1/profile" for ::1 at 2020-05-20 22:05:19 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mProfile Load (0.8ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.8ms | Allocations: 1265)
+
+
+Started GET "/interests" for ::1 at 2020-05-20 22:05:19 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (0.4ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.4ms | Allocations: 1144)
+
+
+Started GET "/interests" for ::1 at 2020-05-20 22:05:19 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (0.5ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.5ms | Allocations: 1144)
+
+
+Started GET "/profiles" for ::1 at 2020-05-20 22:05:19 -0400
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/controllers/profiles_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 0.6ms | Allocations: 2131)
+
+
+Started GET "/users/2/profile" for ::1 at 2020-05-20 22:05:25 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mProfile Load (0.7ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.7ms | Allocations: 1886)
+
+
+Started GET "/users/2/profile" for ::1 at 2020-05-20 22:05:25 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mProfile Load (1.6ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 7ms (Views: 4.8ms | ActiveRecord: 1.6ms | Allocations: 1886)
+
+
+Started GET "/interests" for ::1 at 2020-05-20 22:05:25 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (1.8ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 1.8ms | Allocations: 1144)
+
+
+Started GET "/users/2/profile" for ::1 at 2020-05-20 22:05:31 -0400
+Started GET "/interests/keyword/skupiti" for ::1 at 2020-05-20 22:05:31 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mProfile Load (8.5ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 13ms (Views: 4.4ms | ActiveRecord: 8.5ms | Allocations: 1886)
+
+
+Processing by InterestsController#find_by_key as HTML
+  Parameters: {"keyword"=>"skupiti"}
+  [1m[36mInterest Load (0.4ms)[0m  [1m[34mSELECT "interests".* FROM "interests" WHERE "interests"."text" = $1[0m  [["text", "skupiti"]]
+  ↳ app/controllers/interests_controller.rb:18:in `find_by_key'
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.7ms | Allocations: 1011)
+
+
+Started GET "/users/2/profile" for ::1 at 2020-05-20 22:05:44 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mProfile Load (0.9ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.9ms | Allocations: 1905)
+
+
+Started GET "/users/2/profile" for ::1 at 2020-05-20 22:05:44 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"2"}
+Started GET "/interests" for ::1 at 2020-05-20 22:05:44 -0400
+  [1m[36mProfile Load (14.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 19ms (Views: 4.6ms | ActiveRecord: 14.4ms | Allocations: 2222)
+
+
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (1.0ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 1.0ms | Allocations: 1144)
+
+
+Started GET "/profiles" for ::1 at 2020-05-20 22:05:45 -0400
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (2.6ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/controllers/profiles_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 4.1ms | ActiveRecord: 2.6ms | Allocations: 2131)
+
+
+Started GET "/interests" for ::1 at 2020-05-20 22:05:46 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (2.4ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 2.6ms | ActiveRecord: 2.4ms | Allocations: 1144)
+
+
+Started GET "/users/1/profile" for ::1 at 2020-05-20 22:05:47 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mProfile Load (1.9ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 1.9ms | Allocations: 1268)
+
+
+Started GET "/users/1/profile" for ::1 at 2020-05-20 22:05:48 -0400
+Started GET "/interests" for ::1 at 2020-05-20 22:05:48 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"1"}
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (0.9ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 0.9ms | Allocations: 1144)
+
+
+  [1m[36mProfile Load (58.6ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 61ms (Views: 2.3ms | ActiveRecord: 58.6ms | Allocations: 3580)
+
+
+Started GET "/interests" for ::1 at 2020-05-20 22:05:48 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (0.4ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.4ms | Allocations: 1144)
+
+
+Started GET "/profiles" for ::1 at 2020-05-20 22:05:48 -0400
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/controllers/profiles_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.3ms | Allocations: 2131)
+
+
+Started GET "/users/2/profile" for ::1 at 2020-05-20 22:06:21 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.3ms | Allocations: 1886)
+
+
+Started GET "/users/2/profile" for ::1 at 2020-05-20 22:06:21 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mProfile Load (0.7ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 7ms (Views: 5.4ms | ActiveRecord: 0.7ms | Allocations: 1886)
+
+
+Started GET "/interests" for ::1 at 2020-05-20 22:06:21 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (1.1ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 1.1ms | Allocations: 1144)
+
+
+Started GET "/interests/keyword/skupiti" for ::1 at 2020-05-20 22:06:25 -0400
+Started GET "/users/2/profile" for ::1 at 2020-05-20 22:06:25 -0400
+Processing by InterestsController#find_by_key as HTML
+  Parameters: {"keyword"=>"skupiti"}
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mInterest Load (1.6ms)[0m  [1m[34mSELECT "interests".* FROM "interests" WHERE "interests"."text" = $1[0m  [["text", "skupiti"]]
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/interests_controller.rb:18:in `find_by_key'
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 1.6ms | Allocations: 1789)
+
+
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.6ms | Allocations: 2674)
+
+
+Started POST "/auth/login" for ::1 at 2020-05-20 22:11:19 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"auth"=>{"email"=>"example2@gmail.com", "password"=>"[FILTERED]"}, "authentication"=>{"auth"=>{"email"=>"example2@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 279ms (Views: 0.3ms | ActiveRecord: 2.8ms | Allocations: 1005)
+
+
+Started GET "/profiles" for ::1 at 2020-05-20 22:11:21 -0400
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/controllers/profiles_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.6ms | Allocations: 2131)
+
+
+Started GET "/interests" for ::1 at 2020-05-20 22:11:21 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (0.3ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.3ms | Allocations: 1144)
+
+
+Started GET "/users/1/profile" for ::1 at 2020-05-20 22:11:24 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.4ms | Allocations: 1265)
+
+
+Started GET "/users/1/profile" for ::1 at 2020-05-20 22:11:24 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.4ms | Allocations: 1265)
+
+
+Started GET "/interests" for ::1 at 2020-05-20 22:11:24 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (0.4ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.4ms | Allocations: 1144)
+
+
+Started GET "/interests" for ::1 at 2020-05-20 22:11:24 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (0.4ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.4ms | Allocations: 1144)
+
+
+Started GET "/profiles" for ::1 at 2020-05-20 22:11:24 -0400
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/controllers/profiles_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.5ms | Allocations: 2131)
+
+
+Started GET "/users/2/profile" for ::1 at 2020-05-20 22:12:11 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mProfile Load (7.5ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 10ms (Views: 2.1ms | ActiveRecord: 7.5ms | Allocations: 1886)
+
+
+Started GET "/users/2/profile" for ::1 at 2020-05-20 22:12:11 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.5ms | Allocations: 1886)
+
+
+Started GET "/interests" for ::1 at 2020-05-20 22:12:11 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (0.7ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.7ms | Allocations: 1144)
+
+
+Started GET "/profiles" for ::1 at 2020-05-20 22:12:13 -0400
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/controllers/profiles_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.3ms | Allocations: 2131)
+
+
+Started GET "/interests" for ::1 at 2020-05-20 22:12:13 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (0.3ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.3ms | Allocations: 1144)
+
+
+Started GET "/users/2/profile" for ::1 at 2020-05-20 22:12:15 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mProfile Load (0.7ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.7ms | Allocations: 1886)
+
+
+Started GET "/users/2/profile" for ::1 at 2020-05-20 22:12:15 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mProfile Load (2.0ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 6ms (Views: 3.9ms | ActiveRecord: 2.0ms | Allocations: 1886)
+
+
+Started GET "/interests" for ::1 at 2020-05-20 22:12:15 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (4.8ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 13ms (Views: 7.6ms | ActiveRecord: 4.8ms | Allocations: 1144)
+
+
+Started GET "/users/2/profile" for ::1 at 2020-05-20 22:12:16 -0400
+Started GET "/interests/keyword/skupiti" for ::1 at 2020-05-20 22:12:16 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mProfile Load (3.1ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 7ms (Views: 3.7ms | ActiveRecord: 3.1ms | Allocations: 1887)
+=======
 Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.3ms | Allocations: 949)
 
 
@@ -31745,10 +32233,196 @@ Processing by ProfilesController#find_profile as HTML
   [1m[36mProfile Load (6.1ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 1]]
   ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
 Completed 200 OK in 9ms (Views: 2.1ms | ActiveRecord: 6.1ms | Allocations: 1054)
+>>>>>>> b3beec8327332186399c15ce5ae8a63ef0da6d0b
 
 
 Processing by InterestsController#find_by_key as HTML
   Parameters: {"keyword"=>"skupiti"}
+<<<<<<< HEAD
+  [1m[36mInterest Load (0.4ms)[0m  [1m[34mSELECT "interests".* FROM "interests" WHERE "interests"."text" = $1[0m  [["text", "skupiti"]]
+  ↳ app/controllers/interests_controller.rb:18:in `find_by_key'
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.6ms | Allocations: 1010)
+
+
+Started GET "/profiles" for ::1 at 2020-05-20 22:12:41 -0400
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (28.1ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/controllers/profiles_controller.rb:8:in `index'
+Completed 200 OK in 31ms (Views: 2.5ms | ActiveRecord: 28.1ms | Allocations: 2146)
+
+
+Started GET "/interests" for ::1 at 2020-05-20 22:12:41 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (0.3ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.3ms | Allocations: 1144)
+
+
+Started GET "/profiles" for ::1 at 2020-05-20 22:12:48 -0400
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/controllers/profiles_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.3ms | Allocations: 2131)
+
+
+Started GET "/interests" for ::1 at 2020-05-20 22:12:48 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (0.3ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.3ms | Allocations: 1144)
+
+
+Started GET "/profiles" for ::1 at 2020-05-20 22:12:53 -0400
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/controllers/profiles_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.4ms | Allocations: 2131)
+
+
+Started GET "/interests" for ::1 at 2020-05-20 22:12:54 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (0.8ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.8ms | Allocations: 1144)
+
+
+Started GET "/profiles" for ::1 at 2020-05-20 22:12:57 -0400
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (1.2ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/controllers/profiles_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 1.2ms | Allocations: 2131)
+
+
+Started GET "/interests" for ::1 at 2020-05-20 22:12:57 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (0.5ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.5ms | Allocations: 1144)
+
+
+Started GET "/users/2/profile" for ::1 at 2020-05-20 22:12:57 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 7ms (Views: 2.9ms | ActiveRecord: 0.3ms | Allocations: 1889)
+
+
+Started GET "/users/2/profile" for ::1 at 2020-05-20 22:12:57 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.3ms | Allocations: 1886)
+
+
+Started GET "/interests" for ::1 at 2020-05-20 22:12:57 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (0.6ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.6ms | Allocations: 1144)
+
+
+Started GET "/profiles" for ::1 at 2020-05-20 22:12:59 -0400
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (15.5ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/controllers/profiles_controller.rb:8:in `index'
+Completed 200 OK in 19ms (Views: 3.5ms | ActiveRecord: 15.5ms | Allocations: 2131)
+
+
+Started GET "/interests" for ::1 at 2020-05-20 22:12:59 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (0.2ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms | Allocations: 1144)
+
+
+Started GET "/profiles" for ::1 at 2020-05-20 22:13:06 -0400
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/controllers/profiles_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.3ms | Allocations: 2131)
+
+
+Started GET "/interests" for ::1 at 2020-05-20 22:13:06 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (0.3ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.3ms | Allocations: 1144)
+
+
+Started GET "/interests/keyword/skupiti" for ::1 at 2020-05-20 22:13:14 -0400
+Processing by InterestsController#find_by_key as HTML
+  Parameters: {"keyword"=>"skupiti"}
+  [1m[36mInterest Load (0.3ms)[0m  [1m[34mSELECT "interests".* FROM "interests" WHERE "interests"."text" = $1[0m  [["text", "skupiti"]]
+  ↳ app/controllers/interests_controller.rb:18:in `find_by_key'
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.3ms | Allocations: 919)
+
+
+Started GET "/profiles" for ::1 at 2020-05-20 22:13:28 -0400
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/controllers/profiles_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.3ms | Allocations: 2131)
+
+
+Started GET "/interests" for ::1 at 2020-05-20 22:13:28 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (0.3ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.3ms | Allocations: 1144)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-20 22:13:33 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 32ms (Views: 0.4ms | ActiveRecord: 1.6ms | Allocations: 855)
+
+
+Started GET "/profiles" for ::1 at 2020-05-20 22:13:33 -0400
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (25.8ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/controllers/profiles_controller.rb:8:in `index'
+Completed 200 OK in 31ms (Views: 4.6ms | ActiveRecord: 25.8ms | Allocations: 2131)
+
+
+Started GET "/users/1/profile" for ::1 at 2020-05-20 22:13:43 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.4ms | Allocations: 1265)
+
+
+Started GET "/users/1/profile" for ::1 at 2020-05-20 22:13:43 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mProfile Load (17.9ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 21ms (Views: 3.2ms | ActiveRecord: 17.9ms | Allocations: 1393)
+
+
+Started GET "/interests" for ::1 at 2020-05-20 22:13:43 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (1.0ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 19ms (Views: 17.9ms | ActiveRecord: 1.0ms | Allocations: 1147)
+
+
+Started GET "/interests" for ::1 at 2020-05-20 22:13:43 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (0.5ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.5ms | Allocations: 1144)
+
+
+Started GET "/profiles" for ::1 at 2020-05-20 22:13:43 -0400
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/controllers/profiles_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.5ms | Allocations: 2131)
+=======
   [1m[36mInterest Load (0.3ms)[0m  [1m[34mSELECT "interests".* FROM "interests" WHERE "interests"."text" = $1[0m  [["text", "skupiti"]]
   ↳ app/controllers/interests_controller.rb:18:in `find_by_key'
 Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.4ms | Allocations: 1011)
@@ -32020,6 +32694,366 @@ Processing by InterestsController#index as HTML
   [1m[36mInterest Load (0.9ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
   ↳ app/controllers/interests_controller.rb:8:in `index'
 Completed 200 OK in 15ms (Views: 2.2ms | ActiveRecord: 2.8ms | Allocations: 2899)
+>>>>>>> b3beec8327332186399c15ce5ae8a63ef0da6d0b
+
+
+Started POST "/auth/login" for ::1 at 2020-05-21 10:04:31 -0400
+  [1m[35m (9.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthenticationController#login as HTML
+  Parameters: {"auth"=>{"email"=>"example2@gmail.com", "password"=>"[FILTERED]"}, "authentication"=>{"auth"=>{"email"=>"example2@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (33.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 450ms (Views: 0.7ms | ActiveRecord: 67.9ms | Allocations: 8801)
+
+
+Started GET "/profiles" for ::1 at 2020-05-21 10:04:36 -0400
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (23.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/controllers/profiles_controller.rb:8:in `index'
+Completed 200 OK in 76ms (Views: 26.6ms | ActiveRecord: 26.4ms | Allocations: 17659)
+
+
+Started GET "/interests" for ::1 at 2020-05-21 10:04:36 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (2.5ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 50ms (Views: 9.3ms | ActiveRecord: 36.1ms | Allocations: 5524)
+
+
+Started GET "/users/1/profile" for ::1 at 2020-05-21 10:04:42 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mProfile Load (1.5ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 1.5ms | Allocations: 1292)
+
+
+Started GET "/users/1/profile" for ::1 at 2020-05-21 10:04:42 -0400
+Started GET "/interests" for ::1 at 2020-05-21 10:04:42 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mProfile Load (1.2ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 1.2ms | Allocations: 1265)
+
+
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (1.1ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 2.9ms | ActiveRecord: 1.1ms | Allocations: 1215)
+
+
+Started GET "/interests" for ::1 at 2020-05-21 10:04:42 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (0.4ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.4ms | Allocations: 1144)
+
+
+Started GET "/profiles" for ::1 at 2020-05-21 10:04:42 -0400
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (1.1ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/controllers/profiles_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 1.1ms | Allocations: 2146)
+
+
+Started GET "/users/2/profile" for ::1 at 2020-05-21 10:04:45 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mProfile Load (1.5ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 56ms (Views: 52.8ms | ActiveRecord: 2.9ms | Allocations: 1941)
+
+
+Started GET "/users/2/profile" for ::1 at 2020-05-21 10:04:45 -0400
+Started GET "/interests" for ::1 at 2020-05-21 10:04:45 -0400
+Processing by InterestsController#index as HTML
+Processing by ProfilesController#find_profile as HTML
+  [1m[36mInterest Load (1.6ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+  Parameters: {"user_id"=>"2"}
+Completed 200 OK in 6ms (Views: 3.5ms | ActiveRecord: 1.6ms | Allocations: 2098)
+
+
+  [1m[36mProfile Load (6.6ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 21ms (Views: 11.8ms | ActiveRecord: 6.6ms | Allocations: 2101)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-21 10:26:17 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 28ms (Views: 1.3ms | ActiveRecord: 9.5ms | Allocations: 8593)
+
+
+Started POST "/users/" for ::1 at 2020-05-21 10:27:10 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"example2@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35m (1.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[35m (5.9ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 422 Unprocessable Entity in 323ms (Views: 0.3ms | ActiveRecord: 8.3ms | Allocations: 4718)
+
+
+Started POST "/users/" for ::1 at 2020-05-21 10:27:12 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"example2@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (8.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 422 Unprocessable Entity in 322ms (Views: 0.3ms | ActiveRecord: 9.2ms | Allocations: 3247)
+
+
+Started POST "/users/" for ::1 at 2020-05-21 10:27:21 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"example2@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35m (2.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 422 Unprocessable Entity in 324ms (Views: 0.2ms | ActiveRecord: 2.8ms | Allocations: 3246)
+
+
+Started POST "/users/" for ::1 at 2020-05-21 10:27:40 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"example7@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35m (11.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example7@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Create (4.9ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "example7@gmail.com"], ["password_digest", "$2a$12$vYU6Xns.4C45Na7vbfwlxOTuPCR68u6y.FwbuNvVOQSGtf4qoXDZ."], ["created_at", "2020-05-21 14:27:41.162126"], ["updated_at", "2020-05-21 14:27:41.162126"]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[35m (9.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 201 Created in 303ms (Views: 0.5ms | ActiveRecord: 26.2ms | Allocations: 4015)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-21 10:27:59 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 1.8ms | Allocations: 852)
+
+
+Started POST "/auth/login" for ::1 at 2020-05-21 10:28:12 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"auth"=>{"email"=>"example2@gmail.com", "password"=>"[FILTERED]"}, "authentication"=>{"auth"=>{"email"=>"example2@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 365ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 1173)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-21 10:29:14 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 20ms (Views: 0.3ms | ActiveRecord: 1.8ms | Allocations: 852)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-21 10:29:20 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.2ms | Allocations: 852)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-21 10:29:34 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (614.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 618ms (Views: 0.5ms | ActiveRecord: 614.5ms | Allocations: 856)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-21 10:29:53 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (51.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 57ms (Views: 0.3ms | ActiveRecord: 51.0ms | Allocations: 852)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-21 10:30:10 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 1.0ms | Allocations: 852)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-21 10:30:14 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (155.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 161ms (Views: 0.3ms | ActiveRecord: 155.4ms | Allocations: 852)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-21 10:30:21 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (57.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 61ms (Views: 0.3ms | ActiveRecord: 57.1ms | Allocations: 852)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-21 10:30:26 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (200.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 204ms (Views: 0.6ms | ActiveRecord: 200.0ms | Allocations: 852)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-21 10:30:32 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (349.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 352ms (Views: 0.3ms | ActiveRecord: 349.4ms | Allocations: 853)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-21 10:30:58 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 7ms (Views: 0.6ms | ActiveRecord: 3.8ms | Allocations: 852)
+
+
+Started GET "/auth/verify" for ::1 at 2020-05-21 10:31:03 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 856)
+
+
+Started POST "/auth/login" for ::1 at 2020-05-21 10:31:18 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"auth"=>{"email"=>"example2@gmail.com", "password"=>"[FILTERED]"}, "authentication"=>{"auth"=>{"email"=>"example2@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 321ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 1003)
+
+
+Started GET "/profiles" for ::1 at 2020-05-21 10:31:28 -0400
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (21.7ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/controllers/profiles_controller.rb:8:in `index'
+Completed 200 OK in 70ms (Views: 32.7ms | ActiveRecord: 30.7ms | Allocations: 17654)
+
+
+Started GET "/interests" for ::1 at 2020-05-21 10:31:29 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (1.4ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 50ms (Views: 8.6ms | ActiveRecord: 34.7ms | Allocations: 5524)
+
+
+Started POST "/users/" for ::1 at 2020-05-21 10:31:37 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"example9@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example9@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "example9@gmail.com"], ["password_digest", "$2a$12$v3kDt66hlkhBqHNyWojEnOJDB7yUQx9ys4bfcevNS1BO8/.eJ4HG2"], ["created_at", "2020-05-21 14:31:37.369609"], ["updated_at", "2020-05-21 14:31:37.369609"]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 201 Created in 310ms (Views: 0.6ms | ActiveRecord: 3.0ms | Allocations: 3896)
+
+
+Started GET "/profiles" for ::1 at 2020-05-21 10:33:31 -0400
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/controllers/profiles_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.5ms | Allocations: 2131)
+
+
+Started GET "/interests" for ::1 at 2020-05-21 10:33:31 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (0.3ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.3ms | Allocations: 1144)
+
+
+Started GET "/users/1/profile" for ::1 at 2020-05-21 10:33:33 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.3ms | Allocations: 1270)
+
+
+Started GET "/users/1/profile" for ::1 at 2020-05-21 10:33:33 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mProfile Load (0.9ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 0.9ms | Allocations: 1265)
+
+
+Started GET "/interests" for ::1 at 2020-05-21 10:33:33 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (0.5ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 23ms (Views: 22.1ms | ActiveRecord: 0.5ms | Allocations: 1144)
+
+
+Started GET "/interests" for ::1 at 2020-05-21 10:33:33 -0400
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (0.6ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.6ms | Allocations: 1144)
+
+
+Started GET "/profiles" for ::1 at 2020-05-21 10:33:33 -0400
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.7ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/controllers/profiles_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.7ms | Allocations: 2131)
+
+
+Started GET "/users/4/profile" for ::1 at 2020-05-21 10:35:42 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"4"}
+  [1m[36mProfile Load (5.5ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 10ms (Views: 1.7ms | ActiveRecord: 5.5ms | Allocations: 949)
+
+
+Started GET "/users/4/profile" for ::1 at 2020-05-21 10:35:42 -0400
+Started GET "/interests" for ::1 at 2020-05-21 10:35:42 -0400
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"4"}
+  [1m[36mProfile Load (1.0ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 1.0ms | Allocations: 949)
+
+
+Processing by InterestsController#index as HTML
+  [1m[36mInterest Load (8.5ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  ↳ app/controllers/interests_controller.rb:8:in `index'
+Completed 200 OK in 18ms (Views: 8.7ms | ActiveRecord: 8.5ms | Allocations: 1211)
+
+
+Started GET "/users/4/profile" for ::1 at 2020-05-21 10:35:43 -0400
+Started GET "/interests/keyword/skupiti" for ::1 at 2020-05-21 10:35:43 -0400
+Processing by InterestsController#find_by_key as HTML
+  Parameters: {"keyword"=>"skupiti"}
+Processing by ProfilesController#find_profile as HTML
+  Parameters: {"user_id"=>"4"}
+  [1m[36mInterest Load (0.5ms)[0m  [1m[34mSELECT "interests".* FROM "interests" WHERE "interests"."text" = $1[0m  [["text", "skupiti"]]
+  ↳ app/controllers/interests_controller.rb:18:in `find_by_key'
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.5ms | Allocations: 1362)
+
+
+  [1m[36mProfile Load (43.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/profiles_controller.rb:19:in `find_profile'
+Completed 200 OK in 48ms (Views: 3.9ms | ActiveRecord: 44.2ms | Allocations: 2014)
 
 
 Started POST "/auth/login" for ::1 at 2020-05-21 10:07:32 -0400

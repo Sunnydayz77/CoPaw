@@ -47,6 +47,7 @@ class App extends Component {
     e.preventDefault();
     const currentUser = await registerUser(this.state.authFormData);
     this.setState({ currentUser });
+    this.props.history.push("/welcome");
   }
 
   handleLogout = () => {
