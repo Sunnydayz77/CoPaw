@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_20_003527) do
+ActiveRecord::Schema.define(version: 2020_05_20_172121) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2020_05_20_003527) do
     t.string "business_address"
     t.string "office"
     t.string "img_url"
+    t.integer "timezone"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 

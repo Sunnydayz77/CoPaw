@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import { createInterest, findInterest, addProfileToInterest } from '../services/user-helper';
-import SearchFunction from './SearchFunction';
-
-
 
 class CreateInterest extends Component {
 
@@ -48,11 +45,9 @@ class CreateInterest extends Component {
   render() {
     return (
       <div className='create-interest'>
-        <h2 className='screen-header'>Add Interests Here</h2>
         <div className="interest-create-container">
-          <form className='club-form' onSubmit={this.handleCreate} >
+          <form className='interest-form' onSubmit={this.handleCreate} >
             <div className='form-field'>
-              <p className='form-label'>Interest</p>
               <input name="text" type="text" placeholder='Crocheting'
                 value={this.state.interestData.text} onChange={this.handleChange}
               />
