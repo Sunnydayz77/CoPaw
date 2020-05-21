@@ -4,21 +4,39 @@ export default class Timer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      date: new Date()
+      localTime: ''
     };
   }
 
+  componentDidMount = async () => {
+    this.calcTime(this.props.differenceUTC)
+  }
+
+  //formula taken from https://stackoverflow.com/questions/10087819/convert-date-to-another-timezone-in-javascript
+  calcTime(offset) {
+    var d = new Date();
+    var utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+
+    var nd = new Date(utc + (3600000 * offset));
+    var time = `${nd.getHours()}:${nd.getMinutes()}`
+    this.setState({
+      localTime: time
+    })
+  }
+
+
   callTime() {
     setInterval(() => {
-      this.setState({date: new Date()})
+      this.calcTime(this.props.differenceUTC)
     }, 1000);
   }
-  
+
 
   render() {
+    console.log(this.state.localTime)
     return (
       <div className="Timer">
-        <p>Current Local Time: {this.state.date.toLocaleTimeString()}</p>
+        <p>Current Local Time: {this.state.localTime}</p>
         {this.callTime()}
       </div>
     )
