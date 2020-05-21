@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
 html{
   --blue: #0049d4;
   --marine-blue: #002468;
@@ -26,12 +28,16 @@ html{
 }
 
 .login-link{
-width: 255px;
-height: 26px;
-font-family: Rubik;
-font-size: 20px;
-text-decoration: none;
-color: white;
+  width: 255px;
+  height: 26px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: white;
 }
 
 .register-button {
@@ -39,27 +45,39 @@ color: white;
   height: 65px;
   border-radius: 62.5px;
   background-color: white;
-  font-family: Rubik;
+  font-family: 'Rubik', sans-serif;
   font-size: 20px;
   font-weight: 500;
   color: var(--blue);
 }
 
-/* div.logged-in-header {
-  display: inline;
-}
-
-button.logout-button {
-  display: inline;
-} */
-
 .wufph{
+  width: 432px;
+  height: 74px;
+  font-family: 'Rubik', sans-serif;
   font-size: 65px;
-  font-family: Rubik;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: white;
 }
 
+a{
+  margin: 10px;
+}
 
+svg{
+  width: 50px;
+  height: 50px;
+}
 
+.paw-image {
+  width: 348px;
+  height: 283px;
+  object-fit: contain;
+}
 
 img{
   width: 200px;
@@ -78,7 +96,11 @@ a:link {
 }
 
 a:hover {
-  color: #CA81FF !important;;
+  color: #CA81FF !important;
+}
+
+button:hover {
+  color: #CA81FF !important;
 }
 
 a:active {
@@ -88,4 +110,53 @@ a:active {
 a:visited {
   text-decoration: none;
   color: white;
+}
+
+
+
+.landing {
+  border-radius: 30px;
+  max-width: 900px;
+  align-items: center;
+}
+
+div.landing {
+  margin: 0 auto;
+  padding: 20px;
+  align-items: center;
+  display: flex;
+}
+
+.paw-image {
+  display: inline-block;
+  vertical-align: center;
+  width: 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  }
+  
+.container-text {
+    display: inline-block;
+    text-align: left;
+    width: 45%;
+    margin: 0;
+    @media (max-width: 620px) {
+        width: 50%;
+    }
+  }
+
+.connect-text {
+  width: 432px;
+  height: 78px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 25px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  color: white;
+}
+
+.purple-text {
+  color:  #CA81FF;
 }
