@@ -12,7 +12,7 @@ const ThreadForm = (props) => {
           required
           onChange={props.handleChange}
         />
-      <button>Post</button>
+      <button >Post</button>
       </form>
   )
 }

@@ -45,7 +45,7 @@ function UserScreens(props) {
         }}
       />
 
-      <Route exact path={`/community/:interest_id`}
+      <Route path={`/community/:interest_id`}
         render={(props) => {
           const { interest_id } = props.match.params;
           return <Community interest_id={interest_id} />

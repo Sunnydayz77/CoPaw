@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { readInterestsByProfile } from '../services/user-helper'
 import '../styles/Map.css'
+import { Link } from 'react-router-dom'
 
 
 class InterestTags extends Component {
@@ -9,7 +10,7 @@ class InterestTags extends Component {
     this.state = {
       interestData: []
     }
-    console.log(props)
+    console.log('interesttags', props)
   }
 
   componentDidMount = async () => {
@@ -18,14 +19,14 @@ class InterestTags extends Component {
       interestData: response
     })
   }
-  
+
   render() {
     const {interestData} = this.state
     const interests = interestData.length === 0 ? '' : interestData.map((interest, index) => {
       return (
-        <a href='' className='interest-tag' key={index}>
+        <Link to={`/community/${interest.id}`} className='interest-tag' key={index}>
           {interest.text}
-        </a>
+        </Link>
       )
     })
 

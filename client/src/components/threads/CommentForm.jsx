@@ -12,7 +12,7 @@ const CommentForm = (props) => {
           required
           onChange={props.handleChange}
         />
-      <button>Post</button>
+      <button>Comment</button>
       </form>
   )
 }
