@@ -5,6 +5,11 @@ import Timer from './Timer';
 import '../styles/Profile.css'
 import departmentIcon from '../media/Dept.png'
 import InterestTags from './InterestTags'
+import interestIcon from '../media/interests.png'
+import socialIcon from '../media/social-connect.png'
+import statusIcon from '../media/Status.png'
+import timezoneIcon from '../media/timezone.png'
+import locationIcon from '../media/location.png'
 
 class ProfileDetails extends Component {
   constructor(props) {
@@ -43,12 +48,13 @@ class ProfileDetails extends Component {
     const timer = !profileData ? '' : <Timer differenceUTC={timezone} />
     return (
         <div className='profile'>
-          <p>{defaultMessage}</p>
+        <p>{defaultMessage}</p>
+        <p className="viewing-status">You’re viewing {profileData.full_name}’s profile</p>
 
-          <div className='profile-top'>
+        <div className='profile-top'>
+          
 
             <div className='quick-info'>
-
               <div className='profile-section'>
                 <img className='pic-large' src={profileData.img_url} />
                 <div>
@@ -67,7 +73,7 @@ class ProfileDetails extends Component {
             </div>
 
           </div>
-
+          <hr/>
           <div className='profile-bottom'>
 
             <div className='profile-details'>
@@ -79,7 +85,7 @@ class ProfileDetails extends Component {
                 </div>
               </div>
               <div className='profile-section'>
-                <img src={departmentIcon} className='section-icon' />
+                <img src={locationIcon} className='section-icon' />
                 <div>
                   <p className='section-header'>Office</p>
                   <p>{profileData.office}</p>
@@ -87,7 +93,7 @@ class ProfileDetails extends Component {
               </div>
 
               <div className='profile-section'>
-                <img src={departmentIcon} className='section-icon' />
+                <img src={timezoneIcon} className='section-icon' />
                 <div>
                   <p className='section-header'>Timezone</p>
                   {timer}
@@ -98,7 +104,7 @@ class ProfileDetails extends Component {
             <div className='profile-links'>
 
               <div className='profile-section'>
-                <img src={departmentIcon} className='section-icon' />
+                <img src={interestIcon} className='section-icon' />
                 <div>
                   <p className='section-header'>Interests</p>
                   <div className='tag-container'>
@@ -109,7 +115,7 @@ class ProfileDetails extends Component {
               </div>
 
               <div className='profile-section'>
-                <img src={departmentIcon} className='section-icon' />
+                <img src={socialIcon} className='section-icon' />
                 <div>
                   <p className='section-header'>Social Media</p>
                   <div className='tag-container'>
