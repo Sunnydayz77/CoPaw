@@ -1,0 +1,101 @@
+.threads-display{
+  width: 942px; 
+}
+
+.thread-container{
+  border-radius: 6px;
+  background-color: white;
+  height: 50vh;
+  overflow: auto;
+  margin: 30px 0px;
+}
+
+.thread-header{
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  background-color: #e9e9e9;
+  padding: 10px 30px;
+  border-radius: 6px;
+}
+
+.thread-header-text{
+  text-align:left;
+  color:black;
+}
+
+.thread-header-text > *{
+  margin: 0px;
+}
+
+.thread-body{
+  color: black;
+  text-align: left;
+  padding: 0px 30px;
+}
+
+hr {
+  margin: 20px 20px;
+  height: 1px;
+  background-color: #e9e9e9;
+}
+
+.delete-button{
+  height: 20px;
+  width: 70px;
+  font-size: 10px;
+}
+
+.comment-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 10px 0px;
+  border-radius: 6px;
+}
+
+.comment-text{
+  width: 90%;
+}
+
+.comment-body{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 10px;
+  background-color:#e9e9e9;
+}
+
+.comment-text > *{
+  margin: 0px;
+}
+
+.thread-input{
+  border: solid red;
+}
+
+.comment-input{
+  border: 2px solid grey;
+  border-radius: 6px;
+  width: 800px;
+}
+
+.comment-form-container{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+}
+
+.thread-form{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  width: 942px; 
+}
+
+.thread-button{
+  border-radius: 6px;
+  width: 10%;
+  background-color: #e9e9e9;
+}

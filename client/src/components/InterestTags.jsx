@@ -10,7 +10,6 @@ class InterestTags extends Component {
     this.state = {
       interestData: []
     }
-    console.log('interesttags', props)
   }
 
   componentDidMount = async () => {

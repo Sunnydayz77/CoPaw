@@ -14,7 +14,6 @@ class Profile extends Component {
       profileData: '',
       profilesList: [],
     }
-    console.log('profile props', props)
   }
 
   async componentDidMount() {

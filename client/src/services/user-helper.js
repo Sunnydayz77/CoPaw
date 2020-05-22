@@ -37,19 +37,16 @@ export const updateProfile = async (profileData) => {
 
 
 export const findInterest = async (keyword) => {
-  console.log('keyword in findInterest', keyword)
   const response = await api.get(`/interests/keyword/${keyword}`);
   return response.data;
 }
 
 export const createInterest = async (interestData, profile_id) => {
-  console.log('im creating', interestData)
   const response = await api.post(`/profiles/${profile_id}/interests`, { interest: interestData });
   return response.data;
 }
 
 export const addProfileToInterest = async (interest_id, profile_id) => {
-  console.log('im adding')
   const response = await api.post(`/profiles/${profile_id}/interests/${interest_id}`);
   return response.data;
 }
@@ -65,7 +62,6 @@ export const readAllInterests = async () => {
 }
 
 export const readInterestsByProfile = async (profile_id) => {
-  console.log('profile_id')
   const response = await api.get(`/interests/profile/${profile_id}`);
   return response.data;
 }

@@ -26,9 +26,6 @@ class Home extends Component {
   }
 
   render() {
-    console.log(
-      'home props', this.props
-    )
     const { currentUserProfile } = this.state
     const threadCreate = !currentUserProfile ? '' : <ThreadCreate
       user_id={this.props.currentUser.id}
@@ -36,7 +33,8 @@ class Home extends Component {
       history={this.props.history}
     />
     return (
-      <div className='landing' >
+      <div className='home' >
+        <h2 className='screen-header'>Worldwide Discussions</h2>
         {threadCreate}
       </div>
     )

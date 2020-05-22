@@ -12,11 +12,6 @@ class CreateInterest extends Component {
     }
   }
 
-  componentDidMount = async () => {
-    const result = await findInterest('skupiti');
-    console.log('did it work', result)
-  }
-
   handleChange = async (e) => {
     const { name, value } = e.target;
     this.setState(prevState => ({
@@ -31,10 +26,7 @@ class CreateInterest extends Component {
   handleCreate = async (e) => {
     e.preventDefault();
     const existingInterest = await findInterest(this.state.interestData.text)
-    console.log('keyword in create', this.state.interestData.text)
-    console.log('existingInterest', existingInterest)
     if (existingInterest[0]) {
-      console.log('existingInterest', existingInterest[0].id, this.props.profile_id)
       addProfileToInterest(existingInterest[0].id, this.props.profile_id)
     }
     else {

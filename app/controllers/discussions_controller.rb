@@ -47,6 +47,6 @@ class DiscussionsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def discussion_params
-      params.require(:discussion).permit(:text, :user_id, :profile_id, :full_name)
+      params.require(:discussion).permit(:text, :user_id, :profile_id, :full_name, :img_url, :title)
     end
 end

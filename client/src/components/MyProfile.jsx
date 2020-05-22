@@ -35,6 +35,7 @@ class MyProfile extends Component {
     const { profileData, defaultMessage } = this.state
     return (
       <div className='my-profile'>
+        <h2>How Others See You</h2>
         <p>{defaultMessage}</p>
         <ProfileDetails user_id={this.props.currentUser.id}/>
         

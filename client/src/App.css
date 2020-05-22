@@ -297,3 +297,15 @@ Footer {
   right: 0;
   height: 50px;
 }
+
+.home{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.team{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

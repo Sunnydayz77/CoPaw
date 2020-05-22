@@ -33,7 +33,6 @@ export default class Timer extends Component {
 
 
   render() {
-    console.log(this.state.localTime)
     return (
       <div className="Timer">
         <p>Current Local Time: {this.state.localTime}</p>

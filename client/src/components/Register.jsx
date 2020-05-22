@@ -42,7 +42,6 @@ class Register extends Component {
   }
 
   render() {
-    console.log('spreadsheet data', this.state.secretKeys)
     return (
       <div className="auth-container">
 

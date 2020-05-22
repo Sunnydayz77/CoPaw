@@ -11,12 +11,13 @@ class ThreadCreate extends Component {
         text: '',
         user_id: props.user_id,
         profile_id: props.profileData.id,
-        full_name: props.profileData.full_name
+        full_name: props.profileData.full_name,
+        img_url: props.profileData.img_url,
+        title: props.profileData.title
       },
       createdThread: null,
       threads: ''
     }
-   console.log('threadcreate props', this.props.profileData.full_name)
   }
 
 
@@ -66,7 +67,6 @@ class ThreadCreate extends Component {
     const { history, user_id } = this.props
     return (
       <div className='threads-section'>
-        <h2 className='screen-header'>Member threads</h2>
         <ThreadForm
           thread={thread}
           history={history}
@@ -74,7 +74,11 @@ class ThreadCreate extends Component {
           handleSubmit={handleSubmit}
           cancelPath="../"
         />
-        <Threads user_id={user_id} threads={threads} profileData={this.props.profileData} history={this.props.history}/>
+        <Threads
+          user_id={user_id}
+          threads={threads}
+          profileData={this.props.profileData}
+          history={this.props.history} />
         </div> 
     )
   }
