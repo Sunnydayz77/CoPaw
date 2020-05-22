@@ -29,8 +29,12 @@ class Threads extends Component {
         return threads.map((thread, index) => {
           return (
             <div className="thread" key={index}>
-              <p className='thread-text'>"{thread.text}"</p>
+              <div className='thread-header'>
               <p className='thread-username'>{thread.full_name}</p>
+              </div>
+            
+              <p className='thread-text'>"{thread.text}"</p>
+              
               {user_id === thread.user_id ? <button onClick={() => this.handleDelete(thread.id)}>Delete Thread</button> : null}
               <CommentCreate thread_id={thread.id} user_id={user_id} profileData={profileData}/>
             </div>
