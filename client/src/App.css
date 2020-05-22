@@ -271,6 +271,10 @@ div.profile-top-update {
   width: 1300px;
 }
 
+.viewing-status {
+  color: #6c6c6c;
+}
+
 hr {
   background-color: #CA81FF;
   height: 3px;

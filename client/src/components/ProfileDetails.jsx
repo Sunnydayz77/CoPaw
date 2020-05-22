@@ -49,12 +49,13 @@ class ProfileDetails extends Component {
     const timer = !profileData ? '' : <Timer differenceUTC={timezone} />
     return (
         <div className='profile'>
-          <p>{defaultMessage}</p>
+        <p>{defaultMessage}</p>
+        <p className="viewing-status">You’re viewing {profileData.full_name}’s profile</p>
 
-          <div className='profile-top'>
+        <div className='profile-top'>
+          
 
             <div className='quick-info'>
-
               <div className='profile-section'>
                 <img className='pic-large' src={profileData.img_url} />
                 <div>
