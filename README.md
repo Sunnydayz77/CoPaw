@@ -1,7 +1,8 @@
 # CoPaw
 
 Nobody dropping by your desk uninvited anymore? Give us a week to change that :smiling_imp: 
-## Lets paws together and don't forget to stay pawsitive!
+
+## Lets paws together and use CoPaw to stay connected!
 
 ![New Paw Post](https://media.giphy.com/media/U1m8sGh8duQ0zVlcA4/giphy.gif)<br>
 
