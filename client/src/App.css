@@ -124,8 +124,9 @@ img{
 }
 
 img.section-icon {
-  max-width: 35px;
-  max-height: 40px;
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
 }
 
 a:link {
