@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { readOneProfile, readAllInterests, readAllProfiles } from '../services/user-helper'
 import ProfileDetails from './ProfileDetails'
-import Timer from './Timer';
 import '../styles/Profile.css'
 
 import departmentIcon from '../media/Dept.png'
@@ -42,10 +41,11 @@ class Profile extends Component {
 
   render() {
     const { profilesList } = this.state
+   
 
     const profiles = profilesList.length === 0 ? '' : profilesList.map((profile, index) => {
       return (
-        <Link to={`/profiles/${profile.id}`} className='prof-list-link'>
+        <Link to={`/profiles/${profile.user_id}`} className='prof-list-link' key={index}>
           <img src={profile.img_url} className='pic-small' />
           <p>{profile.full_name}</p>
         </Link>

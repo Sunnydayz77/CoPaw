@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { readOneProfile } from '../services/user-helper'
-import { twitter_svg, linkedin_svg, ig_svg } from '../services/svg'
-import CreateInterest from './CreateInterest'
 import ProfileDetails from './ProfileDetails'
+import '../styles/Profile.css'
 
 class MyProfile extends Component {
   constructor(props) {

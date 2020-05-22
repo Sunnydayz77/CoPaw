@@ -45,10 +45,10 @@ function UserScreens(props) {
         )}
       />
 
-      <Route exact path={`/profile/:user_id`}
+      <Route exact path={`/profiles/:user_id`}
         render={(props) => {
           const { user_id } = props.match.params;
-          return <Profile user_id={user_id} />
+          return <Profile user_id={user_id} history={props.history}/>
         }}
       />
 

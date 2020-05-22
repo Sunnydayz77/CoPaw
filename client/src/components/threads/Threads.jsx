@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { deleteThread } from '../../services/threads-helper'
 import CommentCreate from './CommentCreate';
 import '../../styles/Threads.css'
+import { Link } from 'react-router-dom'
 
 
 class Threads extends Component {
@@ -30,7 +31,7 @@ class Threads extends Component {
           return (
             <div className="thread-container" key={index}>
               <div className='thread-header'>
-                <img src={thread.img_url} className='pic-small' />
+              <Link to={`/profiles/${thread.user_id}`}><img src={thread.img_url} className='pic-small' /></Link>
                 <div className='thread-header-text'>
                   <p className='thread-username'>{thread.full_name}</p>
                   <p className='thread-title'>{thread.title}</p>

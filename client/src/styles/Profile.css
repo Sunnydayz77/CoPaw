@@ -133,3 +133,9 @@ input{
   width: 250px;
   margin: 10px 0px 0px 0px;
 }
+
+.my-profile{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
