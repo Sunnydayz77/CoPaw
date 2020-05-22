@@ -8,6 +8,7 @@ html{
 }
 
 .App {
+  font-family: 'Rubik', sans-serif;
   text-align: center;
   min-height: 100vh;
   margin: 0px;
@@ -74,6 +75,18 @@ button {
   margin: 10px;
 }
 
+.update-button {
+  width: 160px;
+  height: 30px;
+  border-radius: 62.5px;
+  background-color: white;
+  font-family: 'Rubik', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: blue;
+  margin: 10px;
+}
+
 .wufph{
   width: 432px;
   height: 74px;
@@ -102,6 +115,11 @@ img{
   height: 200px;
 }
 
+img.section-icon {
+  max-width: 35px;
+  max-height: 40px;
+}
+
 a:link {
   text-decoration: none;
   color: white;
@@ -125,8 +143,6 @@ a:visited {
   text-decoration: none;
   color: white;
 }
-
-
 
 .landing {
   border-radius: 30px;
@@ -223,33 +239,43 @@ input {
 
 div.profile {
   margin: 0 auto;
-  max-height: 450px;
+  max-height: 600px;
   max-width: 1000px;
   width: 900px;
 }
 
-/* div.update-profile {
-  max-width: 1000px;
-  width: 950px;
-} */
-
 div.profile input {
-  max-width: 370px;
-  max-height: 25px;
+  max-width: 75%;
+  height: 25px;
 }
 
 div.profile button {
-  width: 100px;
-  height: 40px;
+  width: 25%;
+  height: 30px;
 }
 
 div.profile-section {
-  max-width: 400px;
+  width: 70%;
 }
 
-/* div.profile-top {
-  max-width: 400px;
-} */
+div.profile-top-update {
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.profile-top-update div.quick-info-update{
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  width: 1300px;
+}
+
+hr {
+  background-color: #CA81FF;
+  height: 3px;
+  border-radius: 62.5px;
+}
 
 
 Footer {

@@ -39,7 +39,7 @@ class MyProfile extends Component {
         <ProfileDetails user_id={this.props.currentUser.id}/>
         
         <Link to='/edit-profile'>
-          <button>Update Profile</button>
+          <button className="update-button">Update Profile</button>
         </Link>
 
       </div>
