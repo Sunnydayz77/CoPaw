@@ -25,13 +25,26 @@
 }
 
 .community-card-section{
-  width: 40%;
+  width: 25%;
 }
 
 .community-card-section > a {
   color: black;
+
 }
 
 .community-header{
   color: #6c6c6c; 
+}
+
+.interest-tag-container{
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  height: 100%;
+}
+
+.interest-tag{
+  height: 23px;
+  margin: 2px 5px;
 }

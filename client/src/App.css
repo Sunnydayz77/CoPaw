@@ -5,14 +5,22 @@ html{
   --marine-blue: #002468;
   --navy-blue:#001b4f;
   background-image: linear-gradient(to bottom, var(--blue), var(--blue), var(--marine-blue), var(--navy-blue));
+  min-height: 100%;
 }
 
+body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  margin: 0px;
+}
 .App {
   font-family: 'Rubik', sans-serif;
   text-align: center;
-  min-height: 100vh;
+  min-height: 100%;
   margin: 0px;
   color: white;
+  margin: 0px;
 }
 
 .header{
@@ -116,8 +124,9 @@ img{
 }
 
 img.section-icon {
-  max-width: 35px;
-  max-height: 40px;
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
 }
 
 a:link {
@@ -292,7 +301,7 @@ Footer {
   line-height: normal;
   letter-spacing: normal;
   color: white;
-  position: fixed; 
+  position: relative; 
   bottom: 0;
   left: 0;
   right: 0;
