@@ -52,8 +52,6 @@ Nobody dropping by your desk uninvited anymore? Give us a week to change that :s
 
 ### Wireframes
 
-Marvel: (?) <br>
-
 #### Homepage
 ![Homepage](assets/HomePage.png)
 
@@ -74,23 +72,6 @@ Marvel: (?) <br>
 ### ERD (Entity Relationship Diagram)
 
 ![Entity Relationship Diagram](assets/ERD.png)
-
-<br>
-
-#### Component Estimates
-
-| Task                  | Priority | Estimated Time | Actual Time |
-| :-------------------: | :------: | :------------: | :---------: |
-| Wireframe             |    H     |       ?        |      ?      |
-| Initial Readme file   |    H     |       2 hrs    |      1 hr   |
-| Backend Authentication|    H     |       4 hrs    |      4 hrs  |
-| Backend Models        |    H     |       ?        |      ?      |
-| API routes            |    H     |       ?        |      ?      |
-| Frontend Auth & Links |    H     |       ?        |      ?      |
-| Message CRUD          |    H     |       ?        |      ?      |
-| Overall styling       |    H     |       ?        |      ?      |
-| Final Readme file     |    H     |       ?        |      ?      |
-| TOTAL                 |          |       ?        |      ?      |   
 
 <br>
 
@@ -168,25 +149,12 @@ Heroku(Back-end): (?) <br>
 12. Run 'npm start' on 'http://localhost:3001/'
 
 
-#### Helper Functions
-
-|  Function  | Description                                |
-| :--------: | :-----------------------------------------:|
-| Footer     | _Footer function with links._              |
-
 ### Code Showcase
 
 ```
 //Function
 
 ```
-
-### Code Issues & Resolutions
-
-| Error                                                                           | Resolution                                              |
-| :-----------------------------------------------------------------------------: | :-----------------------------------------------------: |
-| `error message`                                                                 |               How problem was solved                    |
-
 
 
 ### Link to deployed site (for quick reference while scrolling through readme file): 

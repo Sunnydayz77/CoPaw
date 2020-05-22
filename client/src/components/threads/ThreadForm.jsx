@@ -13,7 +13,7 @@ const ThreadForm = (props) => {
         onChange={props.handleChange}
         className='comment-input'
       />
-      <button className='thread-button'></button>
+      <button className='thread-button'>Enter</button>
     </form>
   )
 }
