@@ -35,12 +35,12 @@ class Community extends Component {
     const profiles = profileData.length === 0 ? <h1>No one is interested in that. Why are you?</h1> : profileData.map((profile, index) => {
       return (
         <div className='community-container' key={index}>
-          <p style={this.styleFix}>{`Showing results for ${profileData.length} community members`}</p>
+
           <div className='community-card' >
-          <img src={profile.img_url} className='pic-large' />
+            <img src={profile.img_url} className='pic-large' />
             <div className='community-card-section'>
               <a href={`/profile/${profile.id}`} className='section-header' style={this.styleFix} >{profile.full_name}</a>
-                <p>{profile.title}</p>
+              <p>{profile.title}</p>
             </div>
 
             <div className='community-card-section'>
@@ -61,6 +61,7 @@ class Community extends Component {
     return (
       <div className='community'>
         <div className='community-display'>
+          <p className='community-header' style={this.styleFix}>{`Showing results for ${profileData.length} community members`}</p>
           {profiles}
         </div>
 

@@ -8,7 +8,7 @@
   background-color: white;
   width: 1032px;
   padding: 36px;
- 
+  text-align: left;
 }
 
 .community-card{
@@ -30,4 +30,8 @@
 
 .community-card-section > a {
   color: black;
+}
+
+.community-header{
+  color: #6c6c6c; 
 }
