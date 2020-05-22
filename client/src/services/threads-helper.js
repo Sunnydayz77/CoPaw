@@ -1,6 +1,6 @@
 const axios = require('axios');
 const api = axios.create({
-  baseURL: process.env.NODE_ENV === 'production' ? 'https://likunamatata-book-club.herokuapp.com' : 'http://localhost:3000'
+  baseURL: process.env.NODE_ENV === 'production' ? 'https://copaws.herokuapp.com' : 'http://localhost:3000'
 })
 
 // ==================================

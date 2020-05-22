@@ -14,8 +14,8 @@
 .community-card{
   display: flex;
   flex-direction: row;
-  height: 84px;
-  margin: 0px 0px 26px 0px;
+  min-height: 84px;
+  margin: 0px 0px 36px 0px;
 }
 
 .community-card > * {

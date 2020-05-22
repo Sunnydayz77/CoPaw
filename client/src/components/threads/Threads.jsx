@@ -38,7 +38,7 @@ class Threads extends Component {
               </div>
             
               <div className='thread-body'>
-                <p className='thread-text'>"{thread.text}"</p>
+                <p className='thread-text'>{thread.text}</p>
                 {user_id === thread.user_id ? <button onClick={() => this.handleDelete(thread.id)} className='delete-button'>Delete</button> : null}
                 <hr></hr>
                 
