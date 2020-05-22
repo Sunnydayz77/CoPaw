@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import { readOneProfile, readAllInterests, readAllProfiles } from '../services/user-helper'
 import { twitter_svg, linkedin_svg, ig_svg } from '../services/svg'
 import Timer from './Timer';
 import '../styles/Profile.css'
 import departmentIcon from '../media/Dept.png'
+import InterestTags from './InterestTags'
 
 class ProfileDetails extends Component {
   constructor(props) {
@@ -38,18 +38,10 @@ class ProfileDetails extends Component {
 
 
   render() {
-    const { profileData, defaultMessage, interestData } = this.state
+    const { profileData, defaultMessage } = this.state
+    const interestTags = !profileData ? '' : <InterestTags profile_id={profileData.id} />
     const { timezone } = profileData
     const timer = !profileData ? '' : <Timer differenceUTC={timezone} />
-
-    const interests = interestData.length === 0 ? '' : interestData.map((interest, index) => {
-      return (
-        <a href='' className='interest-tag' key={index}>
-          {interest.text}
-        </a>
-      )
-    })
-
     return (
         <div className='profile'>
           <p>{defaultMessage}</p>
@@ -111,7 +103,7 @@ class ProfileDetails extends Component {
                 <div>
                   <p className='section-header'>Interests</p>
                   <div className='tag-container'>
-                    {interests}
+                  {interestTags}
                   </div>
 
                 </div>

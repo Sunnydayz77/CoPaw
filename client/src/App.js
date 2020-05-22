@@ -125,7 +125,7 @@ class App extends Component {
         
           //screens to show when logged in
           <>
-            <UserScreens currentUser={this.state.currentUser} />
+            <UserScreens currentUser={this.state.currentUser} history={this.props.history} />
           </>
         }
 

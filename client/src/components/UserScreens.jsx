@@ -10,13 +10,14 @@ import Team from './Team'
 import Community from './Community'
 
 function UserScreens(props) {
+  console.log('userscreen props', props)
   return (
     <div className='user-screens'>
 
       <Route exact path="/"
         render={() => (
           <div>
-            <Home currentUser={props.currentUser} />
+            <Home currentUser={props.currentUser} history={props.history}/>
           </div>
         )}
       />
@@ -44,7 +45,7 @@ function UserScreens(props) {
         }}
       />
 
-      <Route exact path={`/community/:interest_id`}
+      <Route path={`/community/:interest_id`}
         render={(props) => {
           const { interest_id } = props.match.params;
           return <Community interest_id={interest_id} />
@@ -67,13 +68,6 @@ function UserScreens(props) {
         )}
       />
 
-      <Route exact path="/home"
-        render={() => (
-          <div>
-            <Home />
-          </div>
-        )}
-      />
 
       <Route exact path="/team"
         render={() => (

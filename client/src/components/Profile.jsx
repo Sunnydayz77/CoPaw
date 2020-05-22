@@ -11,6 +11,7 @@ class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      profileData: '',
       profilesList: [],
     }
     console.log('profile props', props)
@@ -38,9 +39,7 @@ class Profile extends Component {
     this.setState({
       profilesList: profiles
     })
-
   }
-
 
   render() {
     const { profilesList } = this.state
