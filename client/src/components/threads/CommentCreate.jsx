@@ -12,12 +12,13 @@ class CommentCreate extends Component {
         user_id: props.user_id,
         profile_id: props.profile_id,
         full_name: props.profileData.full_name,
-        discussion_id: props.thread_id
+        discussion_id: props.thread_id,
+        img_url: props.profileData.img_url,
+        title: props.profileData.title
       },
       createdComment: null,
-      comments: ''
+      comments: []
     }
-    console.log('commentsprops', props)
   }
 
   handleChange = event => {
@@ -41,11 +42,17 @@ class CommentCreate extends Component {
         createdComment: res.data
       })
     }
-    getComments(this.props.thread_id)
+    const response = await getComments(this.props.thread_id);
+    this.setState({
+      comments: response
+    })
   }
 
   async componentDidMount() {
-    getComments(this.props.thread_id)
+    const response = await getComments(this.props.thread_id);
+    this.setState({
+      comments: response
+    })
   }
 
   render() {
@@ -60,6 +67,7 @@ class CommentCreate extends Component {
           handleChange={handleChange}
           handleSubmit={handleSubmit}
           cancelPath="../"
+          profileData={this.props.profileData}
         />
         <Comments user_id={user_id} thread_id={thread_id} comments={comments} />
       </div>

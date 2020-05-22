@@ -41,6 +41,7 @@ export const getOneThread = async (thread_id) => {
 export const deleteThread = async (thread_id) => {
   try {
     const resp = await api.delete(`discussions/${thread_id}`)
+    window.location.reload(false)
     return resp
   } catch (error) {
     throw error
@@ -63,7 +64,7 @@ export const createComment = async (comment) => {
 export const getComments = async (thread_id) => {
   try {
     const resp = await api.get(`/discussions/${thread_id}/comments`)
-    return resp
+    return resp.data
   }
   catch (error) {
     throw error
@@ -73,6 +74,7 @@ export const getComments = async (thread_id) => {
 export const deleteComment = async (comment_id) => {
   try {
     const resp = await api.delete(`/comments/${comment_id}`)
+    window.location.reload(false)
     return resp
   } catch (error) {
     throw error

@@ -1,4 +1,11 @@
+.worldwide{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 #map {
   height: 400px;  /* The height is 400 pixels */
-  width: 100%;  /* The width is the width of the web page */
+  width: 942px;  /* The width is the width of the web page */
+  border-radius: 6px;
  }

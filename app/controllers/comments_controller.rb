@@ -26,10 +26,13 @@ class CommentsController < ApplicationController
   end
 
   # GET /discussions/1/comments
-  def show_by_interest
+  def find_by_discussion
+    puts '@discussion.text'
+    puts params[:discussion_id]
     @discussion = Discussion.find(params[:discussion_id])
+    puts @discussion
     @comments = @discussion.comments
-    
+    puts @comments
     render json: @comments
   
   end
@@ -56,6 +59,6 @@ class CommentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def comment_params
-      params.require(:comment).permit(:text, :user_id, :profile_id, :full_name, :discussion_id)
+      params.require(:comment).permit(:text, :user_id, :profile_id, :full_name, :discussion_id, :img_url, :title)
     end
 end

@@ -1,19 +1,23 @@
 import React from 'react'
 
 const CommentForm = (props) => {
-  const { text} = props.comment
+  const { text } = props.comment
   return (
-      <form onSubmit={props.handleSubmit} className='comments-form'>
-      <input
-          placeholder='Your comment goes here'
+    <div className='comment-form-container'>
+      <img src={props.profileData.img_url} className='pic-small'/>
+      <form onSubmit={props.handleSubmit} className='comment-form'>
+        <input
+          placeholder='Add a comment...'
           value={text}
           name='text'
           type='text'
           required
           onChange={props.handleChange}
+          className='comment-input'
         />
-      <button>Comment</button>
       </form>
+    </div>
+
   )
 }
 

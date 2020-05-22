@@ -10,14 +10,21 @@ import Team from './Team'
 import Community from './Community'
 
 function UserScreens(props) {
-  console.log('userscreen props', props)
   return (
     <div className='user-screens'>
 
       <Route exact path="/"
         render={() => (
           <div>
-            <Home currentUser={props.currentUser} history={props.history}/>
+            <Home currentUser={props.currentUser} history={props.history} />
+          </div>
+        )}
+      />
+
+      <Route exact path="/team"
+        render={() => (
+          <div>
+            <Team currentUser={props.currentUser} history={props.history} />
           </div>
         )}
       />
@@ -69,13 +76,6 @@ function UserScreens(props) {
       />
 
 
-      <Route exact path="/team"
-        render={() => (
-          <div>
-            <Team />
-          </div>
-        )}
-      />
 
     </div>
   )
