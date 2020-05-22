@@ -100,6 +100,7 @@ Nobody dropping by your desk uninvited anymore? Give us a week to change that :s
 ### Technologies Used
 -_Zeplin_<br>
 -_Sketch_<br>
+-_Figma_<br>
 -_draw.io_<br>
 -_Google Fonts_<br>
 -_Giphy_<br>
