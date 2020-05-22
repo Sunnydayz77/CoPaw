@@ -134,11 +134,11 @@ Nobody dropping by your desk uninvited anymore? Give us a week to change that :s
 
 ### Link to deployed site: 
 
-Surge(front-end): (copaw.surge.sh) <br>
+Surge(front-end): (http://www.copaw.surge.sh/) <br>
 
 Heroku(Back-end): (https://copaw.herokuapp.com) <br>
 
-### Installation Instructions
+### Installation Instructions For Local Machine
 
 1. Clone repository down with 'git clone https://github.com/Sunnydayz77/CoPaw.git'
 2. CD into repository
@@ -220,7 +220,7 @@ export default CreateInterest;
 
 ### Link to deployed site (for quick reference while scrolling through readme file): 
 
-Surge(front-end): (copaw.surge.sh) <br>
+Surge(front-end): (http://www.copaw.surge.sh/) <br>
 
 Heroku(Back-end): (https://copaw.herokuapp.com) <br>
 
