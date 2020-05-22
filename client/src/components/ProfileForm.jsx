@@ -3,6 +3,12 @@ import { updateProfile, readOneProfile, createProfile } from '../services/user-h
 import { Timezones } from './TimeZones.js';
 import CreateInterest from './CreateInterest'
 import departmentIcon from '../media/Dept.png'
+import interestIcon from '../media/interests.png'
+import socialIcon from '../media/social-connect.png'
+import statusIcon from '../media/Status.png'
+import timezoneIcon from '../media/timezone.png'
+import locationIcon from '../media/location.png'
+
 
 class ProfileForm extends Component {
   constructor(props) {
@@ -71,18 +77,20 @@ class ProfileForm extends Component {
 
           <div className='profile'>
 
-            <div className='profile-top'>
+            <div className='profile-top-update'>
 
-              <div className='quick-info'>
+              <div className='quick-info-update'>
 
-                <div className='profile-section'>
-                  <input name="img_url" type="text" placeholder='https://imgur.com/vhSVnZT'
+              <div className='profile-section'>
+                <p className='section-header'>Profile Image</p>
+                  <input name="img_url" type="text" placeholder='https://imgur.com/'
                     value={this.state.profileData.img_url} onChange={this.handleChange}
                   /> 
-                  
+                    <p className='section-header'>Full Name</p>
                     <input name="full_name" type="text" placeholder='Full Name'
                       value={this.state.profileData.full_name} onChange={this.handleChange}
-                    /> 
+                /> 
+                    <p className='section-header'>Position</p>
                     <input name="title" type="text" placeholder='Solutions Engineer'
                       value={this.state.profileData.title} onChange={this.handleChange}
                     />
@@ -90,23 +98,24 @@ class ProfileForm extends Component {
                 </div>
               </div>
 
-
-              <div className='profile-section'>
+            <div className='profile-section'>
+                <br />
+                <br />
+                <br />
               <div>
-                <br />
-                <br />
-                <br />
-                
-                  <p className='section-header'>Status</p>
-                  <input name="status" type="text" placeholder='What are you up to these days outside of work? How are you feeling?'
+                <div>
+                  <img src={statusIcon} className='section-icon' />
+                <p className='section-header'>Status</p>
+                  <input name="status" type="text" placeholder='What are you up to these days outside of work?'
                     value={this.state.profileData.status} onChange={this.handleChange}
                   />
                 </div>
               </div>
+              </div>
 
             </div>
-
-            <div className='profile-bottom'>
+          <hr/>
+          <div className='profile-bottom'>
 
               <div className='profile-details'>
                 <div className='profile-section'>
@@ -119,7 +128,7 @@ class ProfileForm extends Component {
                   </div>
                 </div>
                 <div className='profile-section'>
-                  <img src={departmentIcon} className='section-icon' />
+                  <img src={locationIcon} className='section-icon' />
                   <div>
                     <p className='section-header'>Office</p>
                     <select name='office' onChange={this.handleChange}>
@@ -130,7 +139,7 @@ class ProfileForm extends Component {
                 </div>
 
                 <div className='profile-section'>
-                  <img src={departmentIcon} className='section-icon' />
+                  <img src={timezoneIcon} className='section-icon' />
                 <div>
                 <p className='section-header'>Timezone</p>
                     <select name='timezone' onChange={this.handleChange}>
@@ -144,7 +153,7 @@ class ProfileForm extends Component {
               <div className='profile-links'>
 
                 <div className='profile-section'>
-                  <img src={departmentIcon} className='section-icon' />
+                  <img src={interestIcon} className='section-icon' />
                   <div>
                     <p className='section-header'>Interests</p>
                     <CreateInterest profile_id={profileData.id} />
@@ -153,7 +162,7 @@ class ProfileForm extends Component {
                 </div>
 
                 <div className='profile-section'>
-                  <img src={departmentIcon} className='section-icon' />
+                  <img src={socialIcon} className='section-icon' />
                   <div>
                     <p className='section-header'>Social Media</p>
                     <div className='social-inputs'>
@@ -178,11 +187,11 @@ class ProfileForm extends Component {
 
           </div>
         
-        <button>Submit Update</button>
+        <button className="update-button">Submit Update</button>
       </form>
 
     )
   }
 }
 
-export default ProfileForm
+export default ProfileForm;
