@@ -1,7 +1,7 @@
 # CoPaw
 
 Nobody dropping by your desk uninvited anymore? Give us a week to change that :smiling_imp: 
-## Paws together! Let's goo!
+## Lets paws together and don't forget to stay pawsitive!
 
 ![New Paw Post](https://media.giphy.com/media/U1m8sGh8duQ0zVlcA4/giphy.gif)<br>
 
@@ -11,7 +11,7 @@ Nobody dropping by your desk uninvited anymore? Give us a week to change that :s
 
 ### Overview
 
-**CoPaw** is an internal tool that is a hybrid between an employee directory and a social network. Users can sign up for an account, sign in, post messages to other users, and create/follow message boards or topics of their choice. They can also edit their own posts and delete them. As a post-MVP goal, users can comment on messages. CoPaw is built using React front-end and Ruby on Rails back-end. Lets paws together and don't forget to stay pawsitive!
+**CoPaw** is an internal tool that is a hybrid between an employee directory and a social network. Users can sign up for an account, sign in, post messages to other users, and create/follow message boards or topics based on interest. They can also edit their own posts and delete them. As a post-MVP goal, coworkers will be able to see to where other users are logging in from on a world map. CoPaw is built using React front-end and Ruby on Rails back-end. Lets paws together and don't forget to stay pawsitive!
 
 <br>
 
@@ -21,6 +21,7 @@ Nobody dropping by your desk uninvited anymore? Give us a week to change that :s
 - _Use atleast one API to call and display information_<br>
 - _Sign up_<br>
 - _Sign in_<br>
+- _Search Bar_<br>
 - _Messaging board_<br>
 - _Creation of messages_<br>
 - _Editing of messages_<br>
@@ -29,12 +30,12 @@ Nobody dropping by your desk uninvited anymore? Give us a week to change that :s
 - _React Frontend_<br>
 - _Authentication_<br>
 - _Flexbox_<br>
-- _Nicely styled, ready for your portfolio, and ready to show employees!_<br>
+- _Nicely styled and ready for a portfolio_<br>
 - _Deployed on Surge/Heroku_<br>
 - _Robust commit history_<br>
-- _Code must be correctly indented and well styled_<br>
-- _Remove console logs_<br>
-- _README_<br>
+- _Code is correctly indented and well styled_<br>
+- _Console logs removed_<br>
+- _Readme created_<br>
 
 <br>
 
@@ -42,8 +43,8 @@ Nobody dropping by your desk uninvited anymore? Give us a week to change that :s
 
 - _3 related models (User plus two others)_<br>
 - _3 associations (one-to-many or many-to-many)_<br>
+- _Worldwide map and coworker locator_<br>
 - _404 Page_<br>
-- _Search Bar_<br>
 - _Weather API_<br>
 - _Likes/Dislikes_<br>
 - _Emojis_<br>
@@ -53,19 +54,22 @@ Nobody dropping by your desk uninvited anymore? Give us a week to change that :s
 ### Wireframes
 
 #### Homepage
-![Homepage](assets/HomePage.png)
+![Landing Page](assets/LandingPage.png)
 
 #### Sign Up
-![?](?)
+![Sign Up Page](assets/SignUp.png)
 
 #### Sign In
-![?](?)
+![Sign In](assets/Login.png)
 
-#### User View/Profile View
-![?](?)
+#### Profile View
+![Profile View](assets/Profile.png)
 
 #### Message Board
-![?](?)
+![Team Message Thread](assets/TeamThread.png)
+
+#### Worldwide Coworker Locations
+![Worldwide Coworker Locations](assets/Worldwide.png)
 
 <br>
 
@@ -83,9 +87,8 @@ Nobody dropping by your desk uninvited anymore? Give us a week to change that :s
 | Rails Documentation                  | _Ruby on Rails Library._                                     |
 | React Router                         | _React Router Library._                                      |
 | CSS Tricks                           | _For help while styling web app._                            |
-| Weather API                          | _Third party API used to render weather into homepage on app._|
+| Secret Key API                       | _Third party API used to render secret key for sign up._     |
 | StackOverflow                        | _For help while writing functional and class components._    |
-| Unsplash                             | _For wireframing and main header photo._                     |
 | GIPHY                                | _For videos used on Readme, loading spinner, and 404 page._  |
 | Surge                                | _For deployment of front-end of web app._                    |
 | Heroku                               | _For deployment of back-end of web app._                     |
@@ -94,10 +97,12 @@ Nobody dropping by your desk uninvited anymore? Give us a week to change that :s
 <br>
 
 ### Technologies Used
--_Giphy_<br>
--_Unsplash_<br>
--_Marvel App_<br>
+-_Zeplin_<br>
+-_Sketch_<br>
 -_draw.io_<br>
+-_Google Fonts_<br>
+-_Giphy_<br>
+
 
 <br>
 
@@ -152,7 +157,63 @@ Heroku(Back-end): (?) <br>
 ### Code Showcase
 
 ```
-//Function
+//Code that allows a user to add an interest to their profile
+
+class CreateInterest extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      interestData: {
+        text: ''
+      }
+    }
+  }
+
+  handleChange = async (e) => {
+    const { name, value } = e.target;
+    this.setState(prevState => ({
+      interestData: {
+        ...prevState.interestData,
+        [name]: value
+      }
+    }));
+  }
+
+
+  handleCreate = async (e) => {
+    e.preventDefault();
+    const existingInterest = await findInterest(this.state.interestData.text)
+    if (existingInterest[0]) {
+      addProfileToInterest(existingInterest[0].id, this.props.profile_id)
+    }
+    else {
+      createInterest(this.state.interestData, this.props.profile_id)
+    }
+  }
+
+  render() {
+    return (
+      <div className='create-interest'>
+        <div className="interest-create-container">
+          <form className='interest-form' onSubmit={this.handleCreate} >
+            <div className='form-field'>
+              <input name="text" type="text" placeholder='Crocheting'
+                value={this.state.interestData.text} onChange={this.handleChange}
+              />
+            </div>
+
+            <button>Add</button>
+          </form>
+        </div>
+      </div>
+    )
+
+  }
+
+}
+
+export default CreateInterest;
 
 ```
 
