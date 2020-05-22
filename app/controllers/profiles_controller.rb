@@ -19,6 +19,14 @@ class ProfilesController < ApplicationController
     render json: @profile
   end
 
+  # GER /profiles/byinterest/1
+  def show_by_interest
+    @interest = Interest.find(params[:interest_id])
+    @profiles = @interest.profiles
+
+    render json: @profiles
+  end
+
   # POST /profiles
   def create
     @profile = Profile.new(profile_params)
@@ -52,6 +60,9 @@ class ProfilesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def profile_params
-      params.require(:profile).permit(:full_name, :title, :department, :status, :user_id)
+      params.require(:profile).permit(
+        :full_name, :title, :department, :status, :user_id, :img_url, :timezone,
+        :linkedin_url, :twitter_url, :ig_url, :website_url,
+        :mobile, :landline, :personal_email, :business_address, :office)
     end
 end

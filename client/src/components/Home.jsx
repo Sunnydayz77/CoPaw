@@ -1,42 +1,46 @@
-import React, {Component} from 'react'
-import { readAllUsers } from '../services/user-helper'
+import React, { Component } from 'react'
+import { readAllUsers, readOneProfile } from '../services/user-helper'
+import '../styles/Map.css'
+import ThreadCreate from './threads/ThreadCreate'
+import Axios from 'axios';
+
 
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userData: []
+      currentUserProfile: ''
     }
   }
 
-  async componentDidMount() {
-    const response = await readAllUsers()
+  componentDidMount = async () => {
+    const user_id = !this.props.currentUser ? '' : this.props.currentUser.id
+    const response = await readOneProfile(user_id).catch((error) => {
+      console.error(error);
+    })
+
+    const currentUserProfile = !response ? '' : response[0]
     this.setState({
-      userData: response
+      currentUserProfile: currentUserProfile
     })
   }
 
-   
   render() {
-    const { userData } = this.state
-    console.log('userData', userData)
-    const users = userData.length == 0 ? '' : userData.map( (user, index) => {
-      return (
-        <div className='user-card' key={index}>
-          <a>{user.email}</a>
-        </div>
-        )
-    })
-
+    const { currentUserProfile } = this.state
+    const threadCreate = !currentUserProfile ? '' : <ThreadCreate
+      user_id={this.props.currentUser.id}
+      profileData={currentUserProfile}
+      history={this.props.history}
+    />
     return (
-      <div className='landing'>
-        <h3>{`Hello ${this.props.currentUser.email}`}</h3>
-        {users}
+      <div className='home' >
+        <h2 className='screen-header'>Worldwide Discussions</h2>
+        {threadCreate}
       </div>
     )
-    
+
   }
- 
+
 }
 
 export default Home;

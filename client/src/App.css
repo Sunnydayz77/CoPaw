@@ -1,42 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+html{
+  --blue: #0049d4;
+  --marine-blue: #002468;
+  --navy-blue:#001b4f;
+  background-image: linear-gradient(to bottom, var(--blue), var(--blue), var(--marine-blue), var(--navy-blue));
+}
+
 .App {
+  font-family: 'Rubik', sans-serif;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin: 0px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 79px 104px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header-logo{
+  width: 217px;
+  height: 53px;
+}
+
+.login-link{
+  width: 255px;
+  height: 26px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: white;
+}
+
+.register-button {
+  width: 160px;
+  height: 65px;
+  border-radius: 62.5px;
+  background-color: white;
+  font-family: 'Rubik', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: blue;
+}
+
+button.logout-button {
+  width: 160px;
+  height: 65px;
+  border-radius: 62.5px;
+  background-color: white;
+  font-family: 'Rubik', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: blue;
+}
+
+button {
+  width: 160px;
+  height: 50px;
+  border-radius: 62.5px;
+  background-color: white;
+  font-family: 'Rubik', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: blue;
+  margin: 10px;
+}
+
+.update-button {
+  width: 160px;
+  height: 30px;
+  border-radius: 62.5px;
+  background-color: white;
+  font-family: 'Rubik', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: blue;
+  margin: 10px;
+}
+
+.wufph{
+  width: 432px;
+  height: 74px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 65px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: white;
 }
 
 a{
   margin: 10px;
+}
+
+.paw-image {
+  width: 348px;
+  height: 283px;
+  object-fit: contain;
+}
+
+img{
+  width: 200px;
+  height: 200px;
+}
+
+img.section-icon {
+  max-width: 35px;
+  max-height: 40px;
+}
+
+a:link {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+a:hover {
+  color: #CA81FF !important;
+}
+
+button:hover {
+  color: #CA81FF !important;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+  color: white;
+}
+
+.landing {
+  border-radius: 30px;
+  max-width: 900px;
+  align-items: center;
+}
+
+div.landing {
+  margin: 0 auto;
+  padding: 20px;
+  align-items: center;
+  display: flex;
+}
+
+div.user-card {
+  margin: 0 auto;
+}
+
+.paw-image {
+  display: inline-block;
+  vertical-align: center;
+  width: 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  }
+  
+.container-text {
+    display: inline-block;
+    text-align: left;
+    padding: 0px;
+    width: 45%;
+    margin: 0;
+    @media (max-width: 620px) {
+        width: 50%;
+    }
+  }
+
+.connect-text {
+  width: 432px;
+  height: 78px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 25px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  color: white;
+}
+
+.purple-text {
+  color:  #CA81FF;
+}
+
+.auth-form {
+  font-family: 'Rubik', sans-serif;
+}
+
+p.form-label {
+  font-family: 'Rubik', sans-serif;
+  font-size: 25px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  color: white;
+}
+
+input {
+  margin: 5px;
+  width: 421px;
+  height: 45px;
+  border-radius: 62.5px;
+  background-color: white;
+  padding: 0px 0px 0px 20px;
+}
+
+.slack {
+  margin: auto;
+  color: #d5d5d6;
+}
+
+.password-min {
+  width: 319px;
+  height: 33px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #d5d5d6;
+}
+
+div.profile {
+  margin: 0 auto;
+  max-height: 600px;
+  max-width: 1000px;
+  width: 900px;
+}
+
+div.profile input {
+  max-width: 75%;
+  height: 25px;
+}
+
+div.profile button {
+  width: 25%;
+  height: 30px;
+}
+
+div.profile-section {
+  width: 70%;
+}
+
+div.profile-top-update {
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.profile-top-update div.quick-info-update{
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  width: 1300px;
+}
+
+.viewing-status {
+  color: #6c6c6c;
+}
+
+hr {
+  background-color: #CA81FF;
+  height: 3px;
+  border-radius: 62.5px;
+}
+
+
+Footer {
+  font-family: 'Rubik', sans-serif;
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: white;
+  position: fixed; 
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+}
+
+.home{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.team{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

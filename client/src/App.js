@@ -6,6 +6,7 @@ import Register from './components/Register'
 import Login from './components/Login'
 import Header from './components/Header'
 import UserScreens from './components/UserScreens'
+import Footer from './components/Footer'
 
 import './App.css';
 
@@ -46,6 +47,7 @@ class App extends Component {
     e.preventDefault();
     const currentUser = await registerUser(this.state.authFormData);
     this.setState({ currentUser });
+    this.props.history.push("/welcome");
   }
 
   handleLogout = () => {
@@ -122,9 +124,12 @@ class App extends Component {
           :
         
           //screens to show when logged in
-        <UserScreens currentUser={this.state.currentUser}/>
+          <>
+            <UserScreens currentUser={this.state.currentUser} history={this.props.history} />
+          </>
         }
 
+        <Footer />
       </div>
 
     );

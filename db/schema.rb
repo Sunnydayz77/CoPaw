@@ -10,10 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_19_025627) do
+ActiveRecord::Schema.define(version: 2020_05_22_012205) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "Interests_Profiles", id: false, force: :cascade do |t|
+    t.bigint "Profile_id", null: false
+    t.bigint "Interest_id", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "text"
+    t.integer "user_id"
+    t.integer "profile_id"
+    t.string "full_name"
+    t.bigint "discussion_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "img_url"
+    t.string "title"
+    t.index ["discussion_id"], name: "index_comments_on_discussion_id"
+  end
+
+  create_table "discussions", force: :cascade do |t|
+    t.string "text"
+    t.integer "profile_id"
+    t.string "full_name"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "img_url"
+    t.string "title"
+    t.index ["user_id"], name: "index_discussions_on_user_id"
+  end
+
+  create_table "interests", force: :cascade do |t|
+    t.string "text"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "interests_profiles", id: false, force: :cascade do |t|
+    t.bigint "interest_id", null: false
+    t.bigint "profile_id", null: false
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.string "full_name"
@@ -23,6 +64,17 @@ ActiveRecord::Schema.define(version: 2020_05_19_025627) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
+    t.string "twitter_url"
+    t.string "linkedin_url"
+    t.string "ig_url"
+    t.string "website_url"
+    t.string "mobile"
+    t.string "landline"
+    t.string "personal_email"
+    t.string "business_address"
+    t.string "office"
+    t.string "img_url"
+    t.integer "timezone"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
@@ -37,5 +89,7 @@ ActiveRecord::Schema.define(version: 2020_05_19_025627) do
     t.string "status"
   end
 
+  add_foreign_key "comments", "discussions"
+  add_foreign_key "discussions", "users"
   add_foreign_key "profiles", "users"
 end

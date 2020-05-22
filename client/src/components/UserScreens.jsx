@@ -1,30 +1,43 @@
-import React, { Component } from 'react'
-import { Route, withRouter } from 'react-router-dom'
+import React from 'react'
+import { Route } from 'react-router-dom'
 import Home from './Home'
-import Profile from './Profile'
+import MyProfile from './MyProfile'
 import ProfileForm from './ProfileForm'
+import Profile from './Profile'
+import Map from './Map'
+import Welcome from './Welcome'
+import Team from './Team'
+import Community from './Community'
 
-function UserScreens  (props) {
-    return (
-      <div className='user-screens'>
+function UserScreens(props) {
+  return (
+    <div className='user-screens'>
 
-      <Route exact path="/home"
+      <Route exact path="/"
         render={() => (
           <div>
-            <Home currentUser={props.currentUser} />
+            <Home currentUser={props.currentUser} history={props.history} />
           </div>
         )}
-        />
-        
-        <Route exact path="/my-profile"
+      />
+
+      <Route exact path="/team"
         render={() => (
           <div>
-            <Profile currentUser={props.currentUser} />
+            <Team currentUser={props.currentUser} history={props.history} />
           </div>
         )}
-        />
-        
-        <Route exact path="/edit-profile"
+      />
+
+      <Route exact path="/my-profile"
+        render={() => (
+          <div>
+            <MyProfile currentUser={props.currentUser} />
+          </div>
+        )}
+      />
+
+      <Route exact path="/edit-profile"
         render={() => (
           <div>
             <ProfileForm currentUser={props.currentUser} />
@@ -32,10 +45,42 @@ function UserScreens  (props) {
         )}
       />
 
-    </div> 
-    )
-    
-  }
+      <Route exact path={`/profile/:user_id`}
+        render={(props) => {
+          const { user_id } = props.match.params;
+          return <Profile user_id={user_id} />
+        }}
+      />
+
+      <Route path={`/community/:interest_id`}
+        render={(props) => {
+          const { interest_id } = props.match.params;
+          return <Community interest_id={interest_id} />
+        }}
+      />
+
+      <Route exact path="/worldwide"
+        render={() => (
+          <div>
+            <Map />
+          </div>
+        )}
+      />
+
+      <Route exact path="/welcome"
+        render={() => (
+          <div>
+            <Welcome />
+          </div>
+        )}
+      />
+
+
+
+    </div>
+  )
+
+}
 
 
 export default UserScreens;

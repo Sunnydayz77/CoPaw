@@ -1,19 +1,23 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import {readOneProfile} from '../services/user-helper'
+import { readOneProfile, readAllInterests, readAllProfiles } from '../services/user-helper'
+import ProfileDetails from './ProfileDetails'
+import Timer from './Timer';
+import '../styles/Profile.css'
 
-class SubComments extends Component {
+import departmentIcon from '../media/Dept.png'
+
+class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
       profileData: '',
-      defaultMessage: ''
+      profilesList: [],
     }
-
   }
 
   async componentDidMount() {
-    const response = await readOneProfile(this.props.currentUser.id)
+    const response = await readOneProfile(this.props.user_id)
     if (response.length > 0) {
       this.setState({
         profileData: response[0]
@@ -21,26 +25,40 @@ class SubComments extends Component {
     }
     else {
       this.setState({
-        defaultMessage: 'Please edit your profile'
+        defaultMessage: 'User has not updated their profile yet'
       })
     }
+
+    const interests = await readAllInterests()
+    this.setState({
+      interestData: interests
+    })
+
+    const profiles = await readAllProfiles()
+    this.setState({
+      profilesList: profiles
+    })
   }
 
-
   render() {
-    const {profileData, defaultMessage} = this.state
-    return (
-      <div className='subComments-display'>
-        <h1>profile display</h1>
-        <Link to='/edit-profile'>
-          <button>Edit</button>
+    const { profilesList } = this.state
+
+    const profiles = profilesList.length === 0 ? '' : profilesList.map((profile, index) => {
+      return (
+        <Link to={`/profiles/${profile.id}`} className='prof-list-link'>
+          <img src={profile.img_url} className='pic-small' />
+          <p>{profile.full_name}</p>
         </Link>
-        <a>{defaultMessage}</a>
-        <a>{this.props.currentUser.email}</a>
-        <a>{profileData.full_name}</a>
-        <a>{profileData.title}</a>
-        <a>{profileData.department}</a>
-        <a>{profileData.status}</a>
+      )
+    })
+
+    return (
+      <div className='profile-container'>
+        <div className='profiles-list'>
+          {profiles}
+        </div>
+
+        <ProfileDetails user_id={this.props.user_id}/>
       </div>
     )
 
@@ -49,4 +67,4 @@ class SubComments extends Component {
 }
 
 
-export default SubComments
+export default Profile

@@ -1,27 +1,35 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Paw from '../services/Paw.png'
 
 const Login = (props) => {
   return (
     <div className='auth-container'>
-      <h2>Login</h2>
 
       {props.currentUser ?
         '' :
+        <div className='landing'>
+        <img className="paw-image" src={Paw} />
+
+        <div className="container-text">
+          <p className='wufph'>wufph.</p>
+          <p className="connect-text">A new way to connect with Datadog 
+          <br />- <span className="purple-text"> worldwide</span> 
+          </p>
+            
         <form className='auth-form' onSubmit={(e) => {
           e.preventDefault();
           props.handleLogin();
-          props.history.push('/home');
+          props.history.push('/');
         }} >
-          <p>Email:</p>
-          <input name="email" type="text" value={props.formData.email} onChange={props.handleChange} />
-          <p>Password:</p>
-          <input name="password" type="password" value={props.formData.password} onChange={props.handleChange} />
+          <input name="email" type="text" placeholder="Enter your email" value={props.formData.email} onChange={props.handleChange} />
+          <input name="password" type="password" placeholder="Enter your password" value={props.formData.password} onChange={props.handleChange} />
           <div className='auth-buttons'>
-            <button>Login</button>
+            <button>Go</button>
           </div>
 
-        </form>
+          </form>
+        </div>
+      </div> 
       }
     </div>
   )
