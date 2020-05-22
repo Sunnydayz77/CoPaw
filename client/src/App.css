@@ -164,7 +164,7 @@ div.user-card {
 .paw-image {
   display: inline-block;
   vertical-align: center;
-  width: 50%;
+  width: 45%;
   background-repeat: no-repeat;
   background-size: contain;
   }
@@ -172,8 +172,9 @@ div.user-card {
 .container-text {
     display: inline-block;
     text-align: left;
+    height: 432px;
     padding: 0px;
-    width: 45%;
+    width: 50%;
     margin: 0;
     @media (max-width: 620px) {
         width: 50%;
