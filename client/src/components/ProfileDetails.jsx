@@ -14,7 +14,6 @@ class ProfileDetails extends Component {
       defaultMessage: '',
       interestData: []
     }
-    console.log('profile props', props)
   }
 
   async componentDidMount() {

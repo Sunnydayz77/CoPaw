@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-import { readAllUsers, readAllProfiles } from '../services/user-helper'
-import { Link } from 'react-router-dom'
-import Axios from 'axios';
 import '../styles/Map.css'
 import icon from '../media/Dept.png'
+import { offices } from '../data/offices'
 
 const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY
 
@@ -15,10 +13,7 @@ class Map extends Component {
     super(props);
     this.state = {
       profileData: [],
-      locations: [
-        { lat: -25.366, lng: 131.044 },
-        { lat: 40.730610, lng: -73.935242 }
-      ]
+      locations: offices
     }
   }
 
@@ -74,11 +69,12 @@ class Map extends Component {
 
   }
 
-
-
+ 
   render() {
+
     return (
-      <div className='landing' >
+      <div className='worldwide' >
+        <h2>Datadog Locations</h2>
         <div id="map">
         </div>
       </div>
