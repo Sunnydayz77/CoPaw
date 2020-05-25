@@ -110,17 +110,61 @@ Nobody dropping by your desk uninvited anymore? Give us a week to change that :s
 <br>
 
 ### List of Server-Side Routes
+```
+                               Prefix Verb   URI Pattern                                                                              Controller#Action
+                             comments GET    /comments(.:format)                                                                      comments#index
+                                      POST   /comments(.:format)                                                                      comments#create
+                              comment GET    /comments/:id(.:format)                                                                  comments#show
+                                      PATCH  /comments/:id(.:format)                                                                  comments#update
+                                      PUT    /comments/:id(.:format)                                                                  comments#update
+                                      DELETE /comments/:id(.:format)                                                                  comments#destroy
+                          discussions GET    /discussions(.:format)                                                                   discussions#index
+                                      POST   /discussions(.:format)                                                                   discussions#create
+                           discussion GET    /discussions/:id(.:format)                                                               discussions#show
+                                      PATCH  /discussions/:id(.:format)                                                               discussions#update
+                                      PUT    /discussions/:id(.:format)                                                               discussions#update
+                                      DELETE /discussions/:id(.:format)                                                               discussions#destroy
+                           auth_login POST   /auth/login(.:format)                                                                    authentication#login
+                          auth_verify GET    /auth/verify(.:format)                                                                   authentication#verify
+                                      GET    /users/:user_id/profile(.:format)                                                        profiles#find_profile
+                                      POST   /profiles/:profile_id/interests(.:format)                                                interests#create
+                                      GET    /interests/keyword/:keyword(.:format)                                                    interests#find_by_key
+                                      POST   /profiles/:profile_id/interests/:interest_id(.:format)                                   interests#add_profile
+                                      GET    /profiles/byinterest/:interest_id(.:format)                                              profiles#show_by_interest
+                                      GET    /interests/profile/:profile_id(.:format)                                                 interests#find_by_profile
+                                      GET    /discussions/:discussion_id/comments(.:format)                                           comments#find_by_discussion
+                            interests GET    /interests(.:format)                                                                     interests#index
+                                      POST   /interests(.:format)                                                                     interests#create
+                             interest GET    /interests/:id(.:format)                                                                 interests#show
+                                      PATCH  /interests/:id(.:format)                                                                 interests#update
+                                      PUT    /interests/:id(.:format)                                                                 interests#update
+                                      DELETE /interests/:id(.:format)                                                                 interests#destroy
+                             profiles GET    /profiles(.:format)                                                                      profiles#index
+                                      POST   /profiles(.:format)                                                                      profiles#create
+                              profile GET    /profiles/:id(.:format)                                                                  profiles#show
+                                      PATCH  /profiles/:id(.:format)                                                                  profiles#update
+                                      PUT    /profiles/:id(.:format)                                                                  profiles#update
+                                      DELETE /profiles/:id(.:format)                                                                  profiles#destroy
+                                users GET    /users(.:format)                                                                         users#index
+                                      POST   /users(.:format)                                                                         users#create
+                                 user GET    /users/:id(.:format)                                                                     users#show
+                                      PATCH  /users/:id(.:format)                                                                     users#update
+                                      PUT    /users/:id(.:format)                                                                     users#update
+                                      DELETE /users/:id(.:format)                                                                     users#destroy
+                                      GET    /discussions(.:format)                                                                   discussions#index
+                                      POST   /discussions(.:format)                                                                   discussions#create
+                                      GET    /discussions/:id(.:format)                                                               discussions#show
+                                      PATCH  /discussions/:id(.:format)                                                               discussions#update
+                                      PUT    /discussions/:id(.:format)                                                               discussions#update
+                                      DELETE /discussions/:id(.:format)                                                               discussions#destroy
+                                      GET    /comments(.:format)                                                                      comments#index
+                                      POST   /comments(.:format)                                                                      comments#create
+                                      GET    /comments/:id(.:format)                                                                  comments#show
+                                      PATCH  /comments/:id(.:format)                                                                  comments#update
+                                      PUT    /comments/:id(.:format)                                                                  comments#update
+                                      DELETE /comments/:id(.:format)                                                                  comments#destroy
+```
 
-|         Prefix       |   Verb   |                        URI Pattern                                 |       Controller#Action       |
-| :-------------------:| :------: | :----------------------------------------------------------------: | :---------------------------: |
-| auth_login           | POST     | /auth/login(.:format)                                              |  authentication#login         |
-| auth_verify          | GET      | /auth/verify(.:format)                                             |  authentication#verify        |
-| users                | GET      | /users(.:format)                                                   |  users#index                  |
-|                      | POST     | /users(.:format)                                                   |  users#create                 |
-| user                 | GET      | /users/:id(.:format)                                               |  users#show                   |
-|                      | PATCH    | /users/:id(.:format)                                               |  users#update                 |
-|                      | PUT      | /users/:id(.:format)                                               |  users#update                 |
-|                      | DELETE   | /users/:id(.:format)                                               |  users#destroy                |
 
 <br>
 
