@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { readAllProfiles, findInterest, readProfilesByInterest } from '../services/user-helper'
-import { Link } from 'react-router-dom'
 import '../styles/Community.css'
 import InterestTags from './InterestTags'
 
@@ -39,7 +38,7 @@ class Community extends Component {
           <div className='community-card' >
             <img src={profile.img_url} className='pic-large' />
             <div className='community-card-section'>
-              <a href={`/profile/${profile.id}`} className='section-header' style={this.styleFix} >{profile.full_name}</a>
+              <a href={`/profiles/${profile.user_id}`} className='section-header' style={this.styleFix} >{profile.full_name}</a>
               <p>{profile.title}</p>
             </div>
 

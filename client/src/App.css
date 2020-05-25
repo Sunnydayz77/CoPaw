@@ -248,7 +248,7 @@ input {
 }
 
 div.profile {
-  margin: 0 auto;
+  margin: 0 ;
   max-height: 600px;
   max-width: 1000px;
   width: 900px;

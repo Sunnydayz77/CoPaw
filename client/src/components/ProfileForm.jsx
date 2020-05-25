@@ -16,8 +16,8 @@ class ProfileForm extends Component {
     this.state = {
       profileData: {
         id: '',
-        img_url: '',
-        full_name: '',
+        img_url: 'https://imgix.datadoghq.com/img/about/presskit/logo-v/logo_vertical_white.png',
+        full_name: 'Name Lastname',
         title: '',
         department: '',
         status: '',
@@ -34,7 +34,8 @@ class ProfileForm extends Component {
         timezone: ''
       },
       modified: false,
-      offices: [{ 'New York, NY': '10018' }, { 'Boston, MA': '02110' }, { 'Paris, France': '75009' }]
+      offices: [{ 'New York, NY': '10018' }, { 'Boston, MA': '02110' }, { 'Paris, France': '75009' }, { 'Tokyo, Japan': '' },
+                 { 'Sydney, Australia': '' }]
     }
   }
 
@@ -73,120 +74,120 @@ class ProfileForm extends Component {
     })
     return (
 
-        <form className='profile-form' onSubmit={this.handleUpdate}>
+      <form className='profile-form' onSubmit={this.handleUpdate}>
 
-          <div className='profile'>
+        <div className='profile'>
 
-            <div className='profile-top-update'>
+          <div className='profile-top-update'>
 
-              <div className='quick-info-update'>
+            <div className='quick-info-update'>
 
               <div className='profile-section'>
                 <p className='section-header'>Profile Image</p>
-                  <input name="img_url" type="text" placeholder='https://imgur.com/'
-                    value={this.state.profileData.img_url} onChange={this.handleChange}
-                  /> 
-                    <p className='section-header'>Full Name</p>
-                    <input name="full_name" type="text" placeholder='Full Name'
-                      value={this.state.profileData.full_name} onChange={this.handleChange}
-                /> 
-                    <p className='section-header'>Position</p>
-                    <input name="title" type="text" placeholder='Solutions Engineer'
-                      value={this.state.profileData.title} onChange={this.handleChange}
-                    />
-                
-                </div>
+                <input name="img_url" type="text" placeholder='https://imgur.com/'
+                  value={this.state.profileData.img_url} onChange={this.handleChange}
+                />
+                <p className='section-header'>Full Name</p>
+                <input name="full_name" type="text" placeholder='Full Name'
+                  value={this.state.profileData.full_name} onChange={this.handleChange}
+                />
+                <p className='section-header'>Position</p>
+                <input name="title" type="text" placeholder='Solutions Engineer'
+                  value={this.state.profileData.title} onChange={this.handleChange}
+                />
+
               </div>
+            </div>
 
             <div className='profile-section'>
-                <br />
-                <br />
-                <br />
+              <br />
+              <br />
+              <br />
               <div>
                 <div>
                   <img src={statusIcon} className='section-icon' />
-                <p className='section-header'>Status</p>
+                  <p className='section-header'>Status</p>
                   <input name="status" type="text" placeholder='What are you up to these days outside of work?'
                     value={this.state.profileData.status} onChange={this.handleChange}
                   />
                 </div>
               </div>
-              </div>
-
             </div>
-          <hr/>
-          <div className='profile-bottom'>
-
-              <div className='profile-details'>
-                <div className='profile-section'>
-                  <img src={departmentIcon} className='section-icon' />
-                  <div>
-                    <p className='section-header'>Department</p>
-                    <input name="department" type="text" placeholder='Technical Solutions'
-                      value={this.state.profileData.department} onChange={this.handleChange}
-                    />
-                  </div>
-                </div>
-                <div className='profile-section'>
-                  <img src={locationIcon} className='section-icon' />
-                  <div>
-                    <p className='section-header'>Office</p>
-                    <select name='office' onChange={this.handleChange}>
-                      <option name='office' value="">Select One</option>
-                      {offices}
-                    </select>
-                  </div>
-                </div>
-
-                <div className='profile-section'>
-                  <img src={timezoneIcon} className='section-icon' />
-                <div>
-                <p className='section-header'>Timezone</p>
-                    <select name='timezone' onChange={this.handleChange}>
-                      <option value="">Select One</option>
-                      {Timezones.map((timezone, index) => <option key={index} value={timezone.value}>{timezone.name}</option>)}
-                    </select>
-                  </div>
-                </div>
-              </div>
-
-              <div className='profile-links'>
-
-                <div className='profile-section'>
-                  <img src={interestIcon} className='section-icon' />
-                  <div>
-                    <p className='section-header'>Interests</p>
-                    <CreateInterest profile_id={profileData.id} />
-
-                  </div>
-                </div>
-
-                <div className='profile-section'>
-                  <img src={socialIcon} className='section-icon' />
-                  <div>
-                    <p className='section-header'>Social Media</p>
-                    <div className='social-inputs'>
-                      <input name="twitter_url" type="text" placeholder='https://twitter.com/pambeesley'
-                        value={this.state.profileData.twitter_url} onChange={this.handleChange}
-                      />
-                      <input name="linkedin_url" type="text" placeholder='https://www.linkedin.com/in/pambeesley/'
-                        value={this.state.profileData.linkedin_url} onChange={this.handleChange}
-                      />
-
-                      <input name="ig_url" type="text" placeholder='https://instagram.com/pambeesley'
-                        value={this.state.profileData.ig_url} onChange={this.handleChange}
-                      />
-
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-
 
           </div>
-        
+          <hr />
+          <div className='profile-bottom'>
+
+            <div className='profile-details'>
+              <div className='profile-section'>
+                <img src={departmentIcon} className='section-icon' />
+                <div>
+                  <p className='section-header'>Department</p>
+                  <input name="department" type="text" placeholder='Technical Solutions'
+                    value={this.state.profileData.department} onChange={this.handleChange}
+                  />
+                </div>
+              </div>
+              <div className='profile-section'>
+                <img src={locationIcon} className='section-icon' />
+                <div>
+                  <p className='section-header'>Office</p>
+                  <select name='office' onChange={this.handleChange}>
+                    <option name='office' value="">Select One</option>
+                    {offices}
+                  </select>
+                </div>
+              </div>
+
+              <div className='profile-section'>
+                <img src={timezoneIcon} className='section-icon' />
+                <div>
+                  <p className='section-header'>Timezone</p>
+                  <select name='timezone' onChange={this.handleChange}>
+                    <option value="">Select One</option>
+                    {Timezones.map((timezone, index) => <option key={index} value={timezone.value}>{timezone.name}</option>)}
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div className='profile-links'>
+
+              <div className='profile-section'>
+                <img src={interestIcon} className='section-icon' />
+                <div>
+                  <p className='section-header'>Interests</p>
+                  <CreateInterest profile_id={profileData.id} />
+
+                </div>
+              </div>
+
+              <div className='profile-section'>
+                <img src={socialIcon} className='section-icon' />
+                <div>
+                  <p className='section-header'>Social Media</p>
+                  <div className='social-inputs'>
+                    <input name="twitter_url" type="text" placeholder='https://twitter.com/pambeesley'
+                      value={this.state.profileData.twitter_url} onChange={this.handleChange}
+                    />
+                    <input name="linkedin_url" type="text" placeholder='https://www.linkedin.com/in/pambeesley/'
+                      value={this.state.profileData.linkedin_url} onChange={this.handleChange}
+                    />
+
+                    <input name="ig_url" type="text" placeholder='https://instagram.com/pambeesley'
+                      value={this.state.profileData.ig_url} onChange={this.handleChange}
+                    />
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
         <button className="update-button">Submit Update</button>
       </form>
 
