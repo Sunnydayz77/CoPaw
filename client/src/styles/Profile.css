@@ -4,11 +4,9 @@
   justify-content: center;
 }
 
-
 .profiles-list{
   margin: 0px 20px;
   width: 20%;
-  padding: 10px 20px;
   background-color: #3f3f3f;
   border-radius: 6px;
   box-shadow: 0 12px 22px 0 rgba(0, 0, 0, 0.5);
@@ -134,4 +132,16 @@
 input{
   width: 250px;
   margin: 10px 0px 0px 0px;
+}
+
+.my-profile{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

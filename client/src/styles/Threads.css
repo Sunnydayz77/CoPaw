@@ -49,9 +49,14 @@ hr {
 .comment-container{
   display: flex;
   flex-direction: row;
-  align-items: center;
-  margin: 10px 0px;
+  align-items: flex-start;
+  margin: 20px 0px;
+  padding: 0px;
   border-radius: 6px;
+}
+
+.comment-container > *{
+  margin: 0px;
 }
 
 .comment-text{
@@ -69,10 +74,6 @@ hr {
 
 .comment-text > *{
   margin: 0px;
-}
-
-.thread-input{
-  border: solid red;
 }
 
 .comment-input{
@@ -98,4 +99,8 @@ hr {
   border-radius: 6px;
   width: 10%;
   background-color: #e9e9e9;
+}
+
+a > img{
+  padding: 0px;
 }
